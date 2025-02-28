@@ -1,0 +1,36 @@
+.video-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.video {
+  flex-basis: 80%;
+  margin: 2rem;
+  border: hsl(207, 100%, 26%) 1rem solid;
+  border-radius: 2rem;
+  width: 10%;
+  height: 36rem;
+}
+
+.video-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: double underline;
+}
+
+.footer {
+  font-style: italic;
+  font-size: larger;
+  text-decoration: underline;
+  font-family: "Playwrite GB S", cursive;
+}
+
+@media screen and (max-width: 800px) {
+  .video {
+    height: 20rem;
+  }
+  
+}

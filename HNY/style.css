@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(0, 0, 0);
+}
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    overflow: hidden;
+    user-select: none;
+    --last-translate-base-1: 216px;
+    --last-translate-anim-1: -216px;
+    --last-translate-base-2: 540px;
+    --last-translate-anim-2: -540px;
+    --last-translate-base-3: 1078px;
+    --last-translate-anim-3: -1078px;
+}
+
+.container {
+    height: 100%;
+    margin-top: -100px;
+    padding: 0;
+    gap: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.numbers-container {
+    margin-top: -100px;
+    padding: 0;
+    height: 160px;
+    transform: translateY(50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.new-year {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.happy, .new, .year, .numbers {
+    margin: 0;
+    opacity: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.happy {
+    font-size: 9em;
+    -webkit-text-stroke: 1.5px rgb(236, 236, 236);
+    background-image: linear-gradient(to right, rgb(214, 82, 48), #D56E30ff, #DD8425ff, #E69A19ff, #EEB00Eff, #F7C602ff);
+    background-clip: text;
+    color: transparent;
+    animation: fade-in 1s 1000ms ease forwards;
+}
+
+.new, .year {
+    margin-bottom: -100;
+    font-size: 9em;
+    -webkit-text-stroke: 1.5px rgb(236, 236, 236);
+    background-image: linear-gradient(to right, rgb(26, 90, 0), #218B00ff, #1E9900ff, #1CA600ff, #19B400ff, #17C200ff);
+    background-clip: text;
+    color: transparent;
+}
+
+.new { animation: fade-in 1s 2100ms ease forwards;}
+.year { animation: fade-in 1s 2500ms ease forwards;}
+
+.numbers {
+    font-size: 9em;
+    -webkit-text-stroke: 1.5px rgb(236, 236, 236);
+    background-image: linear-gradient(to right, rgb(0, 86, 167), rgb(130, 199, 255));
+    background-clip: text;
+    color: transparent;
+    animation: fade-in 1s 4000ms ease forwards;
+}
+
+.last-digit-1, .last-digit-2, .last-digit-3 {
+    background-image: linear-gradient(to left, rgb(0, 86, 167), rgb(130, 199, 255));
+    background-clip: text;
+    color: transparent;
+}
+
+.last-digit-1 {
+    transform: translateY(var(--last-translate-base-1));
+    animation: new-year-1 2s 5400ms ease forwards;
+}
+.last-digit-2 {
+    transform: translateY(var(--last-translate-base-2));
+    animation: new-year-2 2s 5400ms ease forwards;
+}
+
+.last-digit-3 {
+    transform: translateY(var(--last-translate-base-3));
+    animation: new-year-3 2s 5400ms ease forwards;
+}
+
+.confetti {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    opacity: 0;
+    animation: fall linear 2s forwards;
+}
+
+@keyframes new-year-1 {
+    to {
+        transform: translateY(var(--last-translate-anim-1));
+    }
+}
+@keyframes new-year-2 {
+    to {
+        transform: translateY(var(--last-translate-anim-2));
+    }
+}
+@keyframes new-year-3 {
+    to {
+        transform: translateY(var(--last-translate-anim-3));
+    }
+}
+
+@keyframes fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 1;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .happy { font-size: 7em;}
+    .new, .year { font-size: 7em;}
+    .numbers { font-size: 7em;}
+    .numbers-container { height: 140px;}
+    body {
+        --last-translate-base-1: 168px;
+        --last-translate-anim-1: -168px;
+        --last-translate-base-2: 420px;
+        --last-translate-anim-2: -420px;
+        --last-translate-base-3: 840px;
+        --last-translate-anim-3: -840px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .happy { font-size: 5em;}
+    .new, .year { font-size: 5em;}
+    .numbers { font-size: 5em;}
+    .numbers-container { height: 120px;}
+    body {
+        --last-translate-base-1: 144px;
+        --last-translate-anim-1: -96px;
+        --last-translate-base-2: 324px;
+        --last-translate-anim-2: -276px;
+        --last-translate-base-3: 624px;
+        --last-translate-anim-3: -576px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .happy { font-size: 4em;}
+    .new, .year { font-size: 4em;}
+    .numbers { font-size: 4em;}
+    .numbers-container {
+        height: 70px;
+        margin-top: -50px;
+    }
+    body {
+        --last-translate-base-1: 96px;
+        --last-translate-anim-1: -96px;
+        --last-translate-base-2: 238px;
+        --last-translate-anim-2: -238px;
+        --last-translate-base-3: 476px;
+        --last-translate-anim-3: -476px;
+    }
+}

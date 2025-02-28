@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../css/common.css">
+      <link rel="stylesheet" href="../css/music.css">
+      <script src="../js/darkmode.js" defer></script>
+      <script src="../js/navbar.js" defer></script>
+      <title>
+        Samrat's Work - Music
+      </title>
+    </head> 
+    <body>
+        <!--top-container -->
+    <div class="top-container">
+        <img src="../assets/logo.jpg" alt="logo" class="logo">
+        <h4 class="title">SAMRAT'S WORK</h4>
+        <button class="toggle-mode-icon" onclick="toggleDarkMode()">
+            <div class="toggle-mode-icon-inner" id="toggle-mode-icon-inner"></div>
+        </button>
+      </div>
+  
+      <button id="open-sidebar-button" onclick="openSidebar()">
+        <img src="../svg/open.svg" alt="open sidebar">
+      </button>
+  
+      <!-- nav-bar -->
+      <nav class="nav-bar" id="navbar">
+        <ul>
+          <li>
+            <button id="close-sidebar-button" onclick="closeSidebar()">
+              <img src="../svg/close.svg" alt="close sidebar">
+            </button>
+          </li>
+          <li class="home">
+            <a href="../index.html" lang="bn">হোম</a>
+          </li>
+          <li><a href="../htmls/music.html" lang="bn">গান</a></li>
+          <li><a href="../htmls/videos.html" lang="bn">ভিডিও</a></li>
+          <li><a href="../htmls/photos.html" lang="bn">ছবি</a></li>
+          <li><a href="../htmls/me.html" lang="bn">আমি</a></li>
+        </ul>
+      </nav>
+  
+      <div id="overlay"onclick="closeSidebar()"></div>
+  
+      <div style="height: 30px;"></div>
+
+        <div class="music-container">
+            <h2 class="music-title">Dandelions - Ruth B.</h2>
+            <iframe src="https://drive.google.com/file/d/1iIzd3YRrJw1Hqamq2XGUAcyWJx_KdhYA/preview" width="640" height="360" allow="autoplay" class="music"></iframe>
+            <h2 class="music-title">Perfect - Ed Shereen</h2>
+            <iframe src="https://drive.google.com/file/d/1dB6vDxvasSR6VhWhTC6Lk5g-4aHe3lvf/preview" width="640" height="360" allow="autoplay" class="music"></iframe>
+            <h2 class="music-title">Annabelle's Homework - Alec Benjamin</h2>
+            <iframe src="https://drive.google.com/file/d/1UT09suhfn7oYFqyLw8ST8n7Itd4ZBF1N/preview" width="640" height="360" allow="autoplay" class="music"></iframe>
+            <h2 class="music-title">Wakatte  yo - Aimer</h2>
+            <iframe src="https://drive.google.com/file/d/1-2Yw9Sim4YoEzz2mZED8zNt7_ZYieqI3/preview" width="640" height="360" allow="autoplay" class="music"></iframe>
+            <h2 class="music-title">Blinding Lights - Weeknd</h2>
+            <iframe src="https://drive.google.com/file/d/1HGN79f1hLBdL2xie1VYCvE8bTRU3lM4t/preview" width="640" height="360" allow="autoplay" class="music"></iframe>
+            <h2 class="music-title">Chol Dotong Pahar - Sohan Ali</h2>
+            <iframe src="https://drive.google.com/file/d/1VXBJWhtkh9Wt1FVz26fIzKshgXArUR3-/preview" width="640" height="360" allow="autoplay" class="music"></iframe>
+            
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Samrat's Work. All rights reserved.</p>
+        </div>
+
+        <script src="../js/music.js" defer></script>
+      
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My renders</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/render.css">
+  <script src="../js/darkmode.js" defer></script>
+  <script src="../js/navbar.js" defer></script>
+  
+</head>
+<body>
+  <!--top-container -->
+    <div class="top-container">
+      <img src="../assets/logo.jpg" alt="logo" class="logo">
+      <h4 class="title">SAMRAT'S WORK</h4>
+      <button class="toggle-mode-icon" onclick="toggleDarkMode()">
+            <div class="toggle-mode-icon-inner" id="toggle-mode-icon-inner"></div>
+          </button>
+      </div>
+  
+      <button id="open-sidebar-button" onclick="openSidebar()">
+        <img src="../svg/open.svg" alt="open sidebar">
+      </button>
+  
+      <!-- nav-bar -->
+      <nav class="nav-bar" id="navbar">
+        <ul>
+          <li>
+            <button id="close-sidebar-button" onclick="closeSidebar()">
+              <img src="../svg/close.svg" alt="close sidebar">
+            </button>
+          </li>
+          <li class="home">
+            <a href="../index.html" lang="bn">হোম</a>
+          </li>
+          <li><a href="../htmls/music.html" lang="bn">গান</a></li>
+          <li><a href="../htmls/videos.html" lang="bn">ভিডিও</a></li>
+          <li><a href="../htmls/photos.html" lang="bn">ছবি</a></li>
+          <li><a href="../htmls/me.html" lang="bn">আমি</a></li>
+        </ul>
+      </nav>
+      <div id="overlay"onclick="closeSidebar()"></div>
+
+      <div class="render-container">
+        <iframe src="https://drive.google.com/file/d/1wqmO5aRMWcHuh4_i6wqOluwCMzrV2LVF/preview" loop class="render"></iframe>
+        
+        <iframe src="https://drive.google.com/file/d/12dmFSgnilld5An__oKoKT5UIxImZH83r/preview" loop class="render"></iframe>
+        
+        <iframe src="https://drive.google.com/file/d/1ddw5FDb6Z1HsNw_as1MIxFCPrd4lkhnY/preview" loop class="render"></iframe>
+        
+        <iframe src="https://drive.google.com/file/d/1nO-NwlHVsRjTo3Ctmsu6CEicfKqMawQI/preview" loop class="render"></iframe>
+        
+        <iframe src="https://drive.google.com/file/d/1A3encIVq-sRQAAsOdjWMqL2BMlYKIsk8/preview" loop class="render"></iframe>
+        
+      
+      </div>
+
+      <div style="height: 1rem;"></div>
+<!--
+      <div class="outro-container">
+        <h2>নাহ.... আর কিছু নাই.... আরও লাগবে ক্যান?</h2>
+      </div> -->
+
+      <div class="footer">
+        <p>© 2025 Samrat's Work. All rights reserved.</p>
+      </div>
+</body>
+</html>

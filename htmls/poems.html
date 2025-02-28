@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../css/common.css">
+      <link rel="stylesheet" href="../css/poems.css">
+      <script src="../js/darkmode.js" defer></script>
+      <script src="../js/navbar.js" defer></script>
+      <title>
+        Samrat's Work - Poems
+      </title>
+    </head>
+<body>
+    <!--top-container -->
+    <div class="top-container">
+      <img src="../assets/logo.jpg" alt="logo" class="logo">
+      <h4 class="title">SAMRAT'S WORK</h4>
+      <button class="toggle-mode-icon" onclick="toggleDarkMode()">
+          <div class="toggle-mode-icon-inner" id="toggle-mode-icon-inner"></div>
+      </button>
+    </div>
+
+    <button id="open-sidebar-button" onclick="openSidebar()">
+      <img src="../svg/open.svg" alt="open sidebar">
+    </button>
+
+    <!-- nav-bar -->
+    <nav class="nav-bar" id="navbar">
+      <ul>
+        <li>
+          <button id="close-sidebar-button" onclick="closeSidebar()">
+            <img src="../svg/close.svg" alt="close sidebar">
+          </button>
+        </li>
+        <li class="home">
+          <a href="../index.html" lang="bn">হোম</a>
+        </li>
+        <li><a href="../htmls/music.html" lang="bn">গান</a></li>
+        <li><a href="../htmls/videos.html" lang="bn">ভিডিও</a></li>
+        <li><a href="../htmls/photos.html" lang="bn">ছবি</a></li>
+        <li><a href="../htmls/me.html" lang="bn">আমি</a></li>
+      </ul>
+    </nav>
+
+    <div id="overlay"onclick="closeSidebar()"></div>
+
+    <div style="height: 30px;"></div>
+
+    <div class="poem-container">
+        <div class="poem" lang="bn">
+            <h2>তোতা গাছে আতা পাখি</h2>
+            <h3>সম্রাট বাড়ৈ</h3>
+            <p>তোতা গাছে আতা পাখি, মলিম গাছে ডাউ</p>
+            <p>রাত দুইটায় প্রসেনজীত বলে, আউ মাউ খাউ</p>
+            <p>গরুর হাড্ডি শক্ত দেখে কুত্তার হাড্ডি চাউ।</p>
+            
+        </div>
+        <div class="poem" lang="bn">
+            <h2>ও প্রসেনজীত</h2>
+            <h3>সম্রাট বাড়ৈ</h3>
+            <p>কুত্তার খাবারে বিলাই দেয় থাবা, প্রসেনজীত তুমি কিসের বাড়ি খাবা?</p>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 Samrat's Work. All rights reserved.</p>
+    </div>
+  
+</body>
+
+</html>
