@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/darkmode.js" defer></script>
+    <script src="js/navbar.js" defer></script>
+    <script src="js/index.js" defer type="module"></script>
+    <title>
+      Samrat's Work - Home 
+    </title>
+  </head>
+  <body>
+    <!--top-container -->
+    <div class="top-container">
+      <img src="assets/logo.jpg" alt="logo" class="logo">
+      <h4 class="title">SAMRAT'S WORK</h4>
+      <button class="toggle-mode-icon" onclick="toggleDarkMode()">
+          <div class="toggle-mode-icon-inner" id="toggle-mode-icon-inner"></div>
+      </button>
+    </div>
+
+    <button id="open-sidebar-button" onclick="openSidebar()">
+      <img src="svg/open.svg" alt="open sidebar">
+    </button>
+
+    <!-- nav-bar -->
+    <nav class="nav-bar" id="navbar">
+      <ul>
+        <li>
+          <button id="close-sidebar-button" onclick="closeSidebar()">
+            <img src="svg/close.svg" alt="close sidebar">
+          </button>
+        </li>
+        <li class="home">
+          <a href="index.html" lang="bn">হোম</a>
+        </li>
+        <li><a href="htmls/music.html" lang="bn">গান</a></li>
+        <li><a href="htmls/videos.html" lang="bn">ভিডিও</a></li>
+        <li><a href="htmls/photos.html" lang="bn">ছবি</a></li>
+        <li><a href="htmls/me.html" lang="bn">আমি</a></li>
+      </ul>
+    </nav>
+
+    <div id="overlay"onclick="closeSidebar()"></div>
+
+    <div class="main">
+      <!-- quote -->
+      <div class="quote-container">
+        <div style="height: 20px;"></div>
+        <h1 class="daily-quote-title" lang="bn">এবারের উক্তি:</h1>
+        <div style="height: 10px;"></div>
+        <div class="daily-quote">
+          <em class="quote" lang="bn" id="quote">আহো ভাতিজা আহো</em>
+          <em style="font-size: large;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              -ডক্টর রবি নজরুল ঠাকুর</em>
+        </div>
+      </div>
+
+      <div style="height: 20px;"></div>
+      <h1 class="pages-title" lang="bn">এখানে যা যা আছে:</h1>
+      <div style="height: 20px;"></div>
+
+      <!-- pages -->
+      <div class="pages-container">
+        <div class="row-1">
+          <a href="htmls/videos.html" class="page videos" lang="bn"><div>ভিডিও</div></a>
+          <a href="htmls/photos.html" class="page photo" lang="bn"><div>ছবি</div></a>
+        </div>
+      
+        <div class="row-2">
+          <a href="htmls/music.html" class="page music" lang="bn"><div>গান</div></a>
+          <a href="htmls/poems.html" class="page poem" lang="bn"><div>কবিতা</div></a>
+        </div>
+      
+        <div class="row-3">
+          <a href="htmls/me.html" class="page me" lang="bn"><div>আমার সম্পর্কে</div></a>
+          <a href="htmls/render.html" class="page render" lang="bn"><div>রেন্ডার</div></a>
+          <!-- <a href="htmls/rohit.html" class="page rohit" lang="bn"><div>টপ সিক্রেট</div></a> -->
+        </div>
+      </div>
+      
+
+      <h4 id="store" style="visibility: hidden;">ferfg</h4>
+      <div class="outro-container">
+        <h2>নাহ.... আর কিছু নাই.... আরও লাগবে ক্যান?</h2>
+      </div>
+
+      <div class="footer">
+        <p>© 2025 Samrat's Work. All rights reserved.</p>
+      </div>
+
+    </div>
+  </body>
+
+</html>

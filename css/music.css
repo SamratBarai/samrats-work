@@ -1,0 +1,23 @@
+.music-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.music-title {
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.music {
+    border-radius: 1rem;
+    flex-basis: 70%;
+}
+
+.footer {
+  font-style: italic;
+  font-size: larger;
+  text-decoration: underline;
+  font-family: "Playwrite GB S", cursive;
+}

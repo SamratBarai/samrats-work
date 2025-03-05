@@ -1,0 +1,84 @@
+/** intro **/
+.secret, .second-intro, .empty {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+}
+
+.arrow{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/** space **/
+.space {
+  height: 40rem;
+}
+
+.space-top {
+  height: 2rem;
+}
+
+.news {
+  margin-left: 1rem;
+}
+
+.n-title {
+  text-decoration: underline;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.image {
+  height: 100%;
+  width: 30%;
+  border: 3px solid #df3669;
+  border-radius: 1rem;
+}
+
+.name {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.photo-container {
+  display: flex;
+  flex-wrap: wrap;
+  
+  justify-content: center;
+}
+
+.photo {
+  height: 80%;
+  width: 80%;
+  margin: 1rem;
+  margin: 0.5rem;
+  border-style: solid;
+  border-color: #df3669;
+  border-radius: 0.5rem;
+}
+
+/** outro **/
+.outro-container {
+  width: 99.5%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/** footer **/
+.footer {
+  font-style: italic;
+  font-size: larger;
+  text-decoration: underline;
+  font-family: "Playwrite GB S", cursive;
+}

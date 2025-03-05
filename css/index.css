@@ -1,0 +1,91 @@
+/* daily quote */
+.daily-quote-title {
+  width: 99%;
+  height: 10%;
+  font-size: 1.8rem;
+  margin-left: 4px;
+  text-decoration: double underline;
+}
+/* quote */
+.daily-quote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 99.5%;
+  height: fit-content;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-left: 4px;
+  font-size: 2rem;
+  border-radius: 1rem;
+  border-style: dotted;
+  color: var(--daily-quote-color);
+  background-color: var(--daily-quote-back-color);
+}
+.quote {font-family: "Hind Siliguri", sans-serif;}
+
+
+/* ___content___ */
+
+/* pages container */
+.pages-container {
+  margin-left: 1rem;
+  margin-right: 0.4rem;
+  margin-bottom: 4rem;
+}
+/* page title */
+.pages-title {
+  width: 99%;
+  height: 10%;
+  font-size: 1.5rem;
+  margin-left: 4px;
+  text-decoration: double underline;
+}
+/* rows */
+.row-1, .row-2, .row-3 {
+  display: flex;
+  margin-bottom: 1rem;
+}
+/* pages */
+.page {
+  flex: 1 0 0;
+  padding: 1rem;
+  margin-right: 0.8rem;
+  border-style: solid;
+  font-size: 2.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  text-decoration: none;
+  color: var(--links-color);
+}
+
+/** outro **/
+.outro-container {
+  padding: 10px;
+  text-align: center;
+  height: 10%;
+}
+
+/* footer */
+.footer {
+  font-style: italic;
+  font-size: larger;
+  text-decoration: underline;
+  font-family: "Playwrite GB S", cursive;
+}
+
+/* mobile support */
+@media screen and (max-width: 480px) {
+  .daily-quote-title {
+    font-size: 1.5rem;
+  }
+  .daily-quote {
+    font-size: 1.5rem;
+  }
+  .page {
+    font-size: 2rem;
+    border-radius: 1.5rem;
+  }
+}

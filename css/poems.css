@@ -1,0 +1,20 @@
+.poem-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.poem {
+  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: large;
+}
+
+.footer {
+  font-style: italic;
+  font-size: larger;
+  text-decoration: underline;
+  font-family: "Playwrite GB S", cursive;
+}

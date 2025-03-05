@@ -1,0 +1,29 @@
+.me-container {
+  width: 99.5%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.me-1, .me-2 {
+  font-size: large;
+  padding-left: 1rem;
+  width: 100%;
+  height: 90%;
+  flex-basis: 40%;
+}
+
+.outro-container {
+  width: 99.5%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  font-style: italic;
+  font-size: larger;
+  text-decoration: underline;
+  font-family: "Playwrite GB S", cursive;
+}

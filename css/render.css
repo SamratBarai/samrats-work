@@ -1,0 +1,28 @@
+.render-container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.render {
+  border-radius: 1em;
+  margin-top: 1em;
+  height: 30em;
+  width: min(800px, 90%);
+}
+
+@media screen and (max-width: 750px) {
+  .render {
+    height: 20em;
+    width: min(600px, 90%);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .render {
+    height: 15em;
+    width: min(400px, 90%);
+  }
+}

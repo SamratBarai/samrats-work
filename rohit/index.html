@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head lang="en">
+    <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./darkmode.js" defer></script>
+    <script src="./navbar.js" defer></script>
+    <title>
+      Samrat's Work - Rohit
+    </title>
+  </head>
+  <body>
+    <!--top-container -->
+    <div class="top-container">
+      <img src="./logo.jpg" alt="logo" class="logo">
+      <h4 class="title">SAMRAT'S WORK</h4>
+      <button class="toggle-mode-icon" onclick="toggleDarkMode()">
+          <div class="toggle-mode-icon-inner" id="toggle-mode-icon-inner"></div>
+      </button>
+    </div>
+
+    <button id="open-sidebar-button" onclick="openSidebar()">
+      <img src="./svg/open.svg" alt="open sidebar">
+    </button>
+
+    <!-- nav-bar -->
+    <nav class="nav-bar" id="navbar">
+      <ul>
+        <li>
+          <button id="close-sidebar-button" onclick="closeSidebar()">
+            <img src="../svg/close.svg" alt="close sidebar">
+          </button>
+        </li>
+        <li class="home">
+          <a href="../index.html" lang="bn">হোম</a>
+        </li>
+        <li><a href="../htmls/music.html" lang="bn">গান</a></li>
+        <li><a href="../htmls/videos.html" lang="bn">ভিডিও</a></li>
+        <li><a href="../htmls/photos.html" lang="bn">ছবি</a></li>
+        <li><a href="../htmls/me.html" lang="bn">আমি</a></li>
+      </ul>
+    </nav>
+
+    <div id="overlay"onclick="closeSidebar()"></div>
+
+    <div style="height: 30px;"></div>
+
+    <!-- intro container -->
+    <div class="intro-container">
+        <h3 class="second-intro" lang="bn">আপনারা বর্তমানে সিক্রেট পেজে আছেন</h3>
+        <div class="space-top"></div>
+    </div>
+
+
+    <!-- main content -->
+    <div class="main-content">
+      <h2 class="secret">ছবি দেখতে নিচে যান</h2>
+      <div class="arrow">
+        <svg height="256px" width="256px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-5.12 -5.12 522.24 522.24" xml:space="preserve" fill="#000000" data-darkreader-inline-fill="" style="--darkreader-inline-fill: #000000; --darkreader-inline-stroke: #e8e6e3;" stroke="#000000" data-darkreader-inline-stroke="" stroke-width="7.68" transform="matrix(1, 0, 0, 1, 0, 0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="7.168000000000001"></g><g id="SVGRepo_iconCarrier"> <path style="fill: rgb(61, 109, 235); --darkreader-inline-fill: #4995ec;" d="M239.544,505.183c4.543,4.546,10.499,6.817,16.455,6.817c5.956,0,11.913-2.271,16.457-6.817 l58.182-58.182c6.656-6.656,8.647-16.666,5.046-25.363c-3.603-8.696-12.089-14.367-21.501-14.367h-34.911V23.273 C279.272,10.42,268.852,0,255.999,0s-23.273,10.42-23.273,23.273v384h-34.909c-9.413,0-17.9,5.671-21.501,14.367 c-3.601,8.696-1.61,18.707,5.046,25.363L239.544,505.183z" data-darkreader-inline-fill=""></path></g></svg>
+      </div>
+      <div class="space"></div>
+      <h4 class="empty">এখানে না! আরও নিচে!</h4>
+      <div class="space"></div>
+      <h3 class="empty">এইতো এসে পড়েছেন!</h4>
+        <div class="img">
+          <img src="./images/R1.jpg" class="image"></img>
+          <img src="./images/R2.jpg" class="image"></img>
+          <img src="./images/R3.jpg" class="image"></img>
+          <img src="./images/R4.jpg" class="image"></img>
+          <img src="./images/R5.jpg" class="image"></img>
+          <img src="./images/R7.jpg" class="image"></img>
+          <img src="./images/R6.jpg" class="image"></img>
+        </div>
+        
+        <h2 class="name">নাম: রোহিত বিশ্বাস</h2>
+        <div style="height: 2rem;"></div>
+
+        <h2 class="news n-title">তথ্য সামগ্রী:</h2>
+        <h3 class="news">⦿ বাবার নাম: দুলাল বিশ্বাস (সরকারী চাকুরীজীবি)</h3>
+        <h3 class="news">⦿ মায়ের নাম: সীমা হালদার (শিক্ষিত)</h3>
+        <h3 class="news">⦿ বাড়ি: পাকুরিতা, আগৈলঝাড়া, বরিশাল, বাংলাদেশ, পৃথিবী, সৌরজগৎ, মহাবিশ্ব</h3>
+        <h3 class="news">⦿ বয়স: 15+</h3>
+        <h3 class="news">⦿ প্রিয় ব্যান্ড: Ashes</h3>
+        <h3 class="news">⦿ প্রিয় গান: সে আমাকে আমার হতে দেয় না</h3>
+        <h3 class="news">⦿ প্রিয় খাবার: Meat</h3>
+        <h3 class="news">⦿ দক্ষতা: নৃত্য করা, সাইকেল চালানো, সাতার কাটা, ফুটবল খেলা</h3>
+
+        <div style="height: 2rem;"></div>
+        
+        <h2 class="news n-title">কেন তিনি রাজপুত্তুর:</h2>
+        <h3 class="news">০১. চুল সুন্দর</h3>
+        <h3 class="news">০২. চেহারা সুন্দর</h3>
+        <h3 class="news">০৩. পোশাক সুন্দর</h3>
+        <h3 class="news">০৪. সুস্বাস্থের অধিকারী</h3>
+        <h3 class="news">০৫. সাহসী</h3>
+        <h3 class="news">০৬. পড়াশোনায় ভালো</h3>
+        <h3 class="news">০৭. বাসস্থান: বিল্ডিং</h3>
+        <h3 class="news">০৮. উন্নত খাবার</h3>
+        
+        <div style="height: 1rem;"></div>
+        <h2 class="news">সুতরাং, এর চেয়ে ভালো ছেলে: হতেই পারে না।</h2>
+        <div style="height: 4rem;"></div>
+        <h4 style="text-align: center;">সবশেষে, কাউকে ধন্যবাদ না।</h4>
+
+        
+    </div>
+    <div style="height: 4rem;"></div>
+    
+    <h2 class="news" style="text-decoration: underline;">কিছু গোপন ছবি:</h2>
+    <div class="photo-container">
+	    <img src="swapped1.jpg" class="photo">
+	    <img src="swapped2.jpg" class="photo">
+	    <img src="swapped3.jpg" class="photo">
+	    <img src="swapped4.jpg" class="photo">
+	    <img src="swapped5.jpg" class="photo">
+	    <!-- <img src="swapped6.jpg" class="photo">
+	    <img src="swapped7.jpg" class="photo"> -->
+
+    </div>
+
+
+
+    <!-- outro container -->
+    <div style="height: 15rem;"></div>
+    <div class="outro-container">
+      <h2>আচ্ছা, ঠিকাছে, ধইন্যবাদ</h2>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+      <p>© 2025 Samrat's Work. All rights reserved.</p>
+    </div>
+
+  </body>
+</html>

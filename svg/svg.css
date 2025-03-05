@@ -1,0 +1,300 @@
+/* Hind Siliguri */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+/* Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* Playwrite England */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* Rubik */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+/* root */
+:root {
+  --primary-color: #2976a3;
+  --hover-color: #358bad;
+  --text-color: #080808;
+  --links-color: #2daf2d;
+  --icon-border-color: #900C3F;
+  --daily-quote-color: #080808;
+  --daily-quote-back-color: #a19c95;
+  --dark-mode-toggle-color: #003750;
+  --title-color: linear-gradient(to right, #66cdaa,	#20b2aa);
+  transition: all 300ms ease-out;
+}
+
+/* dark mode */
+.dark-mode {
+  --primary-color: #11121a;
+  --hover-color: #272832;
+  --text-color: #31658f;
+  --links-color: #207720;
+  --icon-border-color: #435c81;
+  --daily-quote-color: #7d9dac;
+  --daily-quote-back-color: #435c81;
+  --dark-mode-toggle-color: #3c3d44;
+  --title-color: linear-gradient(to right, #008b8b,	#00688b);
+  transition: all 0.5s ease-in;
+}
+
+/* Pre-working */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Playwrite England", sans-serif;
+  color: var(--text-color);
+}
+main {
+  padding: min(5em, 7%);
+}
+body {
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  font-family: "Hind Siliguri", sans-serif;
+  transition: background-color 300ms ease-out;
+}
+
+/* Top Container */
+.top-container {
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  border-bottom: 1px solid var(--hover-color);
+  text-align: center;
+}
+
+/* Top Logo */
+.logo {
+  height: 72px;
+  width: 56px;
+  border: 4px solid var(--icon-border-color);
+  border-radius: 50%;
+}
+/* Top Title */
+.title {
+  font-family: "Rubik", serif;
+  background: var(--title-color);
+  background-clip: text;
+  color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Toggle Button */
+.toggle-mode-icon {
+  background-color: var(--dark-mode-toggle-color);
+  border: 2px solid rgb(180, 180, 180);
+  border-radius: 1.5rem;
+  height: 1.8rem;
+  width: 3rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+.toggle-mode-icon-inner {
+  position: relative;
+  left: 0px;
+  background: var(--primary-color);
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 1rem;
+  transition: left 300ms ease-out;
+}
+.toggle-go-right {
+  left: 22px;
+  transition: left 300ms ease-out;
+}
+.toggle-mode-icon:hover {
+  cursor: pointer;
+}
+
+/* Navigation */
+nav {
+  background-color: var(--primary-color);
+  border-top: none;
+  border-bottom: 1px solid var(--hover-color);
+  transition: all 300ms ease-out;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+}
+nav li{
+  display: flex;
+  font-weight: 400;
+}
+nav .home {
+  margin-right: auto;
+}
+nav a {
+  display: flex;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  padding: 0.6em 1.5em;
+  transition: background-color 150ms ease;
+}
+nav a:hover {
+  background-color: var(--hover-color);
+}
+.nav-bar {
+  transition: all 300ms ease-out;
+}
+
+/* Sidebar */
+#open-sidebar-button {
+  display: none;
+  background: none;
+  border: none;
+  height: 3rem;
+  padding: 0.5em;
+  margin-left: auto;
+  cursor: pointer;
+}
+#close-sidebar-button {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+/* Sidebar button hover */
+#open-sidebar-button:hover, #close-sidebar-button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Overlay */
+#overlay {
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  display: none;
+}
+
+/* daily quote */
+.daily-quote-title {
+  width: 99%;
+  height: 10%;
+  font-size: 1.8rem;
+  margin-left: 4px;
+  text-decoration: double underline;
+}
+/* quote */
+.daily-quote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 99.5%;
+  height: fit-content;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-left: 4px;
+  font-size: 2rem;
+  border-radius: 1rem;
+  border-style: dotted;
+  color: var(--daily-quote-color);
+  background-color: var(--daily-quote-back-color);
+}
+.quote {font-family: "Hind Siliguri", sans-serif;}
+
+
+/* ___content___ */
+
+/* pages container */
+.pages-container {
+  margin-left: 1rem;
+  margin-right: 0.4rem;
+  margin-bottom: 4rem;
+}
+/* page title */
+.pages-title {
+  width: 99%;
+  height: 10%;
+  font-size: 1.5rem;
+  margin-left: 4px;
+  text-decoration: double underline;
+}
+/* rows */
+.row-1, .row-2, .row-3 {
+  display: flex;
+  margin-bottom: 1rem;
+}
+/* pages */
+.page {
+  flex: 1 0 0;
+  padding: 1rem;
+  margin-right: 0.8rem;
+  border-style: solid;
+  font-size: 2.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  text-decoration: none;
+  color: var(--links-color);
+}
+
+/** outro **/
+.outro-container {
+  padding: 10px;
+  text-align: center;
+  height: 10%;
+}
+
+/* footer */
+.footer {
+  font-style: italic;
+  font-size: larger;
+  text-decoration: underline;
+  font-family: "Playwrite GB S", cursive;
+}
+
+/* mobile support */
+@media screen and (max-width: 850px) {
+  #open-sidebar-button, #close-sidebar-button {
+    display: block;
+  }
+  nav{
+    position: fixed;
+    top: 0;
+    right: -100vh;
+    height: 100vh;
+    width: min(15em, 100%);
+    z-index: 10;
+    border-left: 1px solid var(--hover-color);
+    transition: right 300ms ease-out;
+  }
+  nav.show {
+    right: 0;
+    transition: right 300ms ease-out;
+  }
+  nav.show ~ #overlay {
+    display: block;
+  }
+  nav ul {
+    width: 100%;
+    flex-direction: column;
+  }
+  nav a {
+    width: 100%;
+    padding-left: 2em;
+  }
+  nav .home {
+    margin-right: unset;
+  }
+  .daily-quote-title {
+    font-size: 1.5rem;
+  }
+  .daily-quote {
+    font-size: 1.5rem;
+  }
+  .page {
+    font-size: 2rem;
+    border-radius: 1.5rem;
+  }
+}

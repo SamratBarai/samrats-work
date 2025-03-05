@@ -1,0 +1,67 @@
+.daily-quote {
+  padding: 1em;
+  border: 4px solid #003750;
+}
+
+.quote {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.section-container {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 5em;
+  width: 90%;
+  border: 2px solid#003750;
+  border-radius: 1em;
+}
+
+.quote-count {
+  width: 60%;
+  padding: 1em;
+}
+
+input {
+  border: none;
+  width: 300px;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+}
+input:focus { 
+  outline: none;
+}
+
+.quote-btn {
+  border: none;
+  width: 160px;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.outro-container {
+  width: 99.5%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  font-style: italic;
+  font-size: larger;
+  text-decoration: underline;
+  font-family: "Playwrite GB S", cursive;
+}
