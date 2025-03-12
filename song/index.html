@@ -24,11 +24,14 @@
         }
         .title {
             color: white;
-            font-size: 32px;
+            font-size: 36px;
         }
         button:focus {
             outline: none;
         }
+	button:hover {
+	    cursor: pointer;
+	}
     </style>
     <title>Saason ki mala pe</title>
 </head>
@@ -36,7 +39,6 @@
         <div class="title">
             Sason ki mala pe
         </div>
-        <a href="song.mp3" download="sason ki mala pe.mp3"><button class="btn">Download</button></a>
-    
+        <a href="song.mp3" download="sason ki mala pe.mp3"><button class="btn" onclick="download()">Download</button></a>
 </body>
 </html>
