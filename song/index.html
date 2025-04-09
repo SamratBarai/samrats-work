@@ -17,9 +17,9 @@
             gap: 24px;
         }
         button {
-            font-size: 32px;
+            font-size: 24px;
             padding: 16px;
-            border-radius: 16px;
+            border-radius: 2em;
             border: none;
         }
         .title {
@@ -33,12 +33,17 @@
 	    cursor: pointer;
 	}
     </style>
-    <title>Saason ki mala pe</title>
+    <title>Sason ki mala pe</title>
 </head>
 <body>
         <div class="title">
             Sason ki mala pe
         </div>
-        <a href="song.mp3" download="sason ki mala pe.mp3"><button class="btn" onclick="download()">Download</button></a>
+        <audio src="sason ki mala pe.mp3" controls style="width: 100%;"></audio>
+        <a href="sason ki mala pe.mp3" download="Sason Ki Mala Pe.mp3"><button class="btn" onclick="download()">Download</button></a>
+    <script>
+        song = document.querySelector("audio")
+        song.volume = 0.1
+    </script>
 </body>
 </html>
