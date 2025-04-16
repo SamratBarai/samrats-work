@@ -58,6 +58,11 @@
 
       <hr>
 
+      <div class="audio-con">
+        <audio src="Shunno - Khachar Bhetor Ochin Pakhi.mp3" id="audio" controls></audio>
+        <input type="range" min="0" max="1000" value="10" id="volume">
+      </div>
+
       <div class="poem" lang="bn">
         <h2>গান - ফাঁসির দড়িতে কংসীর মাথা</h2>
         <h3>সম্রাট বাড়ৈ</h3>
@@ -90,6 +95,16 @@
     <div class="footer">
         <p>© 2025 Samrat's Work. All rights reserved.</p>
     </div>
+
+    <script>
+      song = document.querySelector("audio")
+      slider = document.getElementById("volume")
+      song.volume = 0.1
+
+      volume.addEventListener("input", function(){
+          song.volume = slider.value / 1000
+      })
+  </script>
   
 </body>
 
