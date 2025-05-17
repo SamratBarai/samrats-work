@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" src="../css/common.css">
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); */
+        body {
+            background-color: #11121a;
+            --volume-width: 98%;
+            font-family: "", sans-serif;
+            text-align: center;
+            
+        }
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+        }
+        button {
+            font-size: 24px;
+            padding: 16px;
+            border-radius: 2em;
+            border: none;
+        }
+        .title {
+            color: white;
+            font-size: 36px;
+        }
+        button:focus {
+            outline: none;
+        }
+	    button:hover {
+	        cursor: pointer;
+	    }
+        .vol {
+            display: flex;
+            justify-content: center;
+        }
+        #volume {
+            position: fixed;
+            z-index: 5;
+            -webkit-appearance: none;
+            margin-top: 1em;
+            width: 98%;
+            height: 8px;
+            outline: none;
+            background: #c0c3da;
+            border-radius: 3px;
+        }
+        #volume::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 24px;
+            cursor: pointer;
+            background: #7a81cc;
+        }
+    </style>
+    <title>Sason ki mala pe</title>
+</head>
+<body>
+    <div class="vol">
+        <input type="range" min="0" max="1000" value="10" id="volume">
+    </div>
+
+    <!-- Musics section -->
+    <section id="music">
+        <div class="title">
+            Akdas Hayat - Maine Royaan - Slow & Reverb
+        </div>
+        <audio src="musics\Akdas Hayat - Maine Royaan - Slow & Reverb.mp3" controls style="width: var(--volume-width);"></audio>
+        <a href="musics\Akdas Hayat - Maine Royaan - Slow & Reverb.mp3" download="Akdas Hayat - Maine Royaan - Slow & Reverb.mp3">
+            <button class="btn" onclick="download()">Download</button>
+        </a>
+    </section>
+
+    <section id="music">
+        <div class="title">
+            Rajat Nagpal, Tanveer Evan, Yasser Desai, Rana Sotal - Main Royaan
+        </div>
+        <audio src="musics\Rajat Nagpal, Tanveer Evan, Yasser Desai, Rana Sotal - Main Royaan.mp3" controls style="width: var(--volume-width);"></audio>
+        <a href="musics\Rajat Nagpal, Tanveer Evan, Yasser Desai, Rana Sotal - Main Royaan.mp3" download="Rajat Nagpal, Tanveer Evan, Yasser Desai, Rana Sotal - Main Royaan.mp3">
+            <button class="btn" onclick="download()">Download</button>
+        </a>
+    </section>
+
+    <section id="music">
+        <div class="title">
+            Tanveer Evan - Maine Royaan
+        </div>
+        <audio src="musics\Tanveer Evan - Maine Royaan.mp3" controls style="width: var(--volume-width);"></audio>
+        <a href="musics\Tanveer Evan - Maine Royaan.mp3" download="Tanveer Evan - Maine Royaan.mp3">
+            <button class="btn" onclick="download()">Download</button>
+        </a>
+    </section>
+
+    <section id="music">
+        <div class="title">
+            Tanveer Evan, Ahmed Shakib - Maine Royaan (Lofi Remix)
+        </div>
+        <audio src="musics\Tanveer Evan, Ahmed Shakib - Maine Royaan (Lofi Remix).mp3" controls style="width: var(--volume-width);"></audio>
+        <a href="musics\Tanveer Evan, Ahmed Shakib - Maine Royaan (Lofi Remix).mp3" download="Tanveer Evan, Ahmed Shakib - Maine Royaan (Lofi Remix).mp3">
+            <button class="btn" onclick="download()">Download</button>
+        </a>
+    </section>
+    
+
+    <section id="music">
+        <div class="title">
+            Sason ki mala pe
+        </div>
+        <audio src="sason ki mala pe.mp3" controls style="width: var(--volume-width);"></audio>
+        <a href="sason ki mala pe.mp3" download="Sason Ki Mala Pe.mp3"><button class="btn" onclick="download()">Download</button></a>
+    </section>
+
+    <script>
+        songs = document.querySelectorAll("audio")
+        slider = document.getElementById("volume")
+        songs.forEach(song => {song.volume = 0.1})
+
+        slider.addEventListener("input", function(){
+            songs.forEach(song => {
+                song.volume = slider.value / 1000
+                
+            });
+        })
+    </script>
+</body>
+</html>

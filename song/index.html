@@ -1,72 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" src="../css/common.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-        body {
-            background-color: #11121a;
-            font-family: "Roboto", sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 24px;
-        }
-        button {
-            font-size: 24px;
-            padding: 16px;
-            border-radius: 2em;
-            border: none;
-        }
-        .title {
-            color: white;
-            font-size: 36px;
-        }
-        button:focus {
-            outline: none;
-        }
-	    button:hover {
-	        cursor: pointer;
-	    }
-        #volume {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 7px;
-            outline: none;
-            background: #dcdde6;
-            border-radius: 3px;
-        }
-        #volume::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 24px;
-            height: 24px;
-            border-radius: 24px;
-            cursor: pointer;
-            background: #7a81cc;
-        }
-    </style>
-    <title>Sason ki mala pe</title>
-</head>
-<body>
-        <div class="title">
-            Sason ki mala pe
-        </div>
-        <audio src="sason ki mala pe.mp3" controls style="width: 100%;"></audio>
-        <input type="range" min="0" max="1000" value="10" id="volume">
-        <a href="sason ki mala pe.mp3" download="Sason Ki Mala Pe.mp3"><button class="btn" onclick="download()">Download</button></a>
-    <script>
-        song = document.querySelector("audio")
-        slider = document.getElementById("volume")
-        song.volume = 0.1
+<html>
+    <head>
+        <title>ENTER PASSWORD</title>
+        <style>
+            body {
+                background-color: #11121a;
+                font-family: "", sans-serif;
+                min-height: 100vh;
+            }
+            section {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
+            .inp {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: #ececec;
+                font-size: 1.5em;
+                font-family: "Calibri";
+                height: 1.5em;
+                width: 80%;
+                border-radius: 4em;
+            }
+            .underline {
+                width: 90%;
+                background-color: #0192a5;
+                height: 1px;
+            }
+            input {
+                background: none;
+                border: none;
+                font-size: 0.8em;
+                width: 90%;
+                padding: 0em 0em 0em 0em;
+            }
+            input:focus {
+                outline: none;
+            }
+            h1 {
+                color: #f32d2d;
+                font-size: 3.5em;
+                text-align: center;
+            }
+            button {
+                border: none;
+                cursor: pointer;
+                font-size: 2em;
+                font-family: "Calibri";
+                font-weight: bold;
+                padding: 0.4em;
+                border-radius: 0.5em;
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <h1>Enter Password</h1>
+            <div class="inp">
+                <input type="text" id="password">
+                <div class="underline" id="underline"></div>
+            </div>
+            <a href="song.html">
+                <button id="button" onclick="check()">Enter 🤣</button>
+            </a>
+        </section>
 
-        volume.addEventListener("input", function(){
-            song.volume = slider.value / 1000
-        })
-    </script>
-</body>
+        <script>
+            password = document.getElementById("password")
+            button = document.getElementById("button")
+
+            realPass = "sahitya is a fool"
+
+            password.addEventListener("input", function(){
+                console.log("Current value: " + password.value.toLowerCase())
+                if(password.value.toLowerCase() == realPass)
+                {
+                    button.style.visibility = "visible";
+                }
+            })
+        </script>
+    </body>
 </html>
