@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Graph Equation Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <div class="container">
+        <div class="header">
+            <h1>Interactive Graph Calculator</h1>
+            <p>Select points on the graph and see the equation update in real-time</p>
+        </div>
+
+        <div class="controls">
+            <div class="curve-type">
+                <label for="curveType">Curve Type:</label>
+                <select id="curveType">
+                    <option value="line">Linear (Line)</option>
+                    <option value="parabola">Quadratic (Parabola)</option>
+                    <option value="exponential">Exponential</option>
+                    <option value="polynomial">Polynomial (Multi-point)</option>
+                </select>
+            </div>
+            <div class="options">
+                <div class="option-group">
+                    <label class="switch">
+                        <input type="checkbox" id="gridSnapping">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="switch-label">Grid Snapping</span>
+                </div>
+                <div class="option-group">
+                    <label class="switch">
+                        <input type="checkbox" id="darkMode" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span class="switch-label">Dark Mode</span>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-secondary" onclick="clearPoints()">Clear Points</button>
+                <button class="btn btn-primary" onclick="addRandomPoints()">Random Points</button>
+            </div>
+        </div>
+
+        <div class="graph-container">
+            <canvas id="graphCanvas"></canvas>
+        </div>
+
+        <div class="equation-display">
+            <h3>Equation</h3>
+            <div class="equation" id="equation">Click on the graph to add points</div>
+            <div class="point-info" id="pointInfo"></div>
+            <div class="warning" id="warning" style="display: none;"></div>
+        </div>
+
+        <div class="instructions">
+            <h4>How to Use:</h4>
+            <ul>
+                <li><strong>Click</strong> on the graph to add points</li>
+                <li><strong>Drag</strong> points to move them around</li>
+                <li><strong>Right-click</strong> on a point to remove it</li>
+                <li>Select different curve types to see various equations</li>
+                <li><strong>Polynomial mode</strong>: Add as many points as you want for higher-degree equations</li>
+                <li><strong>Grid Snapping</strong>: Toggle to snap points to grid lines</li>
+                <li><strong>Dark Mode</strong>: Toggle for dark theme</li>
+                <li>Use "Random Points" to generate sample data</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
