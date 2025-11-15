@@ -43,8 +43,7 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            padding-top: 12vh;
+            justify-content: center;
             align-items: center;
             position: relative;
             overflow: hidden;
@@ -203,25 +202,6 @@
             z-index: 2;
         }
 
-        .returns-text {
-    font-family: 'Archivo Black', cursive;
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    font-weight: bold;
-    background: linear-gradient(45deg, var(--accent), var(--primary), var(--glow-1), var(--glow-2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    opacity: 0;
-    animation: magicalReveal 1s ease-out 3.5s forwards;
-    margin-top: 20px;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-}
-
-        .scroll-indicator {
-    bottom: 80px;   /* default was 30px — increase to move it higher */
-}
         @keyframes magicalReveal {
             0% {
                 opacity: 0;
@@ -405,9 +385,6 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            .returns-text {
-    font-size: clamp(1.2rem, 3vw, 2rem);
-}
         }
     </style>
 <base target="_blank">
@@ -446,8 +423,6 @@
         <div class="name-container">
             <div class="name">PRAPTY<br>প্রাপ্তি</div>
         </div>
-
-        <div class="returns-text">Many Many Happy Returns of the Day!</div>
 
         <div class="scroll-indicator" onclick="scrollToWishes()">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
