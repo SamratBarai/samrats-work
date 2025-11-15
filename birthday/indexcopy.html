@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday PRAPTY!</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Stack+Sans&family=Roboto+Text:wght@200..700&display=swap');
         :root {
             --primary: #FF6B9D;
             --secondary: #C44569;
@@ -30,7 +29,7 @@
         }
 
         body {
-            font-family: "Roboto text", sans-serif;
+            font-family: 'Arial', sans-serif;
             background: var(--bg-dark);
             color: var(--text-light);
             min-height: 100vh;
@@ -39,7 +38,6 @@
 
         /* Hero Section */
         .hero-section {
-            user-select: none;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -88,7 +86,7 @@
             display: flex;
             flex-direction: column;
             gap: 30px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             z-index: 10;
             position: relative;
         }
@@ -100,7 +98,6 @@
         }
 
         .letter {
-            font-family: "Bebas Neue", sans-serif;
             font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: bold;
             color: var(--accent);
@@ -189,15 +186,14 @@
         }
 
         .name {
-            font-family: 'Archivo Black', cursive;
-            font-size: clamp(4rem, 12vw, 8rem);
+            font-size: clamp(3rem, 10vw, 6rem);
             font-weight: bold;
             background: linear-gradient(45deg, var(--glow-1), var(--glow-2), var(--glow-3), var(--glow-4));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             opacity: 0;
-            animation: magicalReveal 2s ease-out 3.5s forwards;
+            animation: magicalReveal 4s ease-out 3.5s forwards;
             position: relative;
             z-index: 2;
         }
@@ -205,11 +201,27 @@
         @keyframes magicalReveal {
             0% {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(100vh) rotateX(-90deg) scale(0.1);
+                filter: blur(50px);
+                letter-spacing: -20px;
+            }
+            30% {
+                opacity: 0.5;
+                transform: translateY(0) rotateX(0deg) scale(1.2);
+                filter: blur(20px);
+                letter-spacing: 10px;
+            }
+            60% {
+                opacity: 0.8;
+                transform: scale(1.1);
+                filter: blur(10px);
+                letter-spacing: 5px;
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) rotateX(0deg) scale(1);
+                filter: blur(0);
+                letter-spacing: normal;
             }
         }
 
@@ -263,16 +275,7 @@
             z-index: 5;
         }
 
-        .svg-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 50px 20px;
-            background: var(--bg-light);
-        }
-
         .wishes-container {
-            font-family: "Roboto text", sans-serif;
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
@@ -371,10 +374,6 @@
             .word {
                 gap: 10px;
             }
-
-            .letter {
-                font-size: clamp(3rem, 10vw, 5.5rem);
-            }
             
             .magic-svg {
                 width: 150px;
@@ -421,8 +420,89 @@
         </div>
 
         <div class="name-container">
-            <div class="name">PRAPTY<br>প্রাপ্তি</div>
+            <div class="name">PRAPTY BISWAS</div>
         </div>
+
+        <!-- Magical SVG -->
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve" class="magic-svg">
+<style type="text/css">
+	.st0{fill:#DD68A8;}
+</style>
+<g>
+	<g>
+		<path class="st0" d="M428.8,275.3c0,61.3-49.9,111.2-111.2,111.2h-10.9v180.4c0,0.4,0,0.9-0.1,1.3v178.6c0,6.5-4.5,12.1-10.8,13.6
+			c-1.1,0.3-2.2,0.4-3.2,0.4c-5.2,0-10.1-2.9-12.5-7.8L161.5,514.9v231.9c0,7.7-6.3,14-14,14c-7.7,0-14-6.3-14-14V455.4
+			c0-6.5,4.5-12.2,10.8-13.7c6.3-1.5,12.8,1.5,15.7,7.4l118.6,238.1V455.3c0-0.4,0-0.9,0.1-1.3V251c0-7.7,6.3-14,14-14
+			c7.7,0,14,6.3,14,14v107.5h10.9c45.9,0,83.2-37.3,83.2-83.2c0-45.9-37.3-83.2-83.2-83.2c-45.9,0-83.2,37.3-83.2,83.2
+			c0,7.7-6.3,14-14,14c-7.7,0-14-6.3-14-14c0-61.3,49.9-111.2,111.2-111.2C378.9,164.2,428.8,214,428.8,275.3z"/>
+	</g>
+	<g>
+		<path class="st0" d="M549.6,464.7c-2.6-32.2-29.6-57.6-62.4-57.6c-34.5,0-62.6,28.1-62.6,62.6s28.1,62.6,62.6,62.6
+			c13.2,0,25.5-4.1,35.6-11.1c1.9,5.5,7.1,9.5,13.3,9.5c7.7,0,14-6.3,14-14v-48.6C550,466.9,549.9,465.8,549.6,464.7z M511.7,494.1
+			c-6.3,6.3-14.9,10.1-24.5,10.1c-19.1,0-34.6-15.5-34.6-34.6s15.5-34.6,34.6-34.6s34.6,15.5,34.6,34.6
+			C521.8,479.2,517.9,487.9,511.7,494.1z"/>
+	</g>
+	<g>
+		<path class="st0" d="M452.9,697.4c-1.5-33.2-29-59.7-62.5-59.7c-34.5,0-62.6,28.1-62.6,62.6s28.1,62.6,62.6,62.6
+			c13,0,25.1-4,35.2-10.8c1.4,6.2,7,10.8,13.6,10.8c7.7,0,14-6.3,14-14v-48.6C453.2,699.3,453.1,698.3,452.9,697.4z M390.4,734.8
+			c-19.1,0-34.6-15.5-34.6-34.6s15.5-34.6,34.6-34.6c19.1,0,34.6,15.5,34.6,34.6S409.4,734.8,390.4,734.8z"/>
+	</g>
+	<g>
+		<g>
+			<path class="st0" d="M890.5,700.1c-0.2-34.3-28.2-62.2-62.6-62.2c-34.5,0-62.6,28.1-62.6,62.6c0,34.5,28.1,62.6,62.6,62.6
+				c13,0,25-4,35-10.7c1.5,6,7,10.5,13.6,10.5c7.7,0,14-6.3,14-14v-48.6C890.5,700.2,890.5,700.1,890.5,700.1z M827.9,735.1
+				c-19.1,0-34.6-15.5-34.6-34.6c0-19.1,15.5-34.6,34.6-34.6c19,0,34.5,15.4,34.6,34.4v0.2C862.5,719.6,847,735.1,827.9,735.1z"/>
+		</g>
+	</g>
+	<g>
+		<path class="st0" d="M406,532.3c-5.4,0-10.5-3.1-12.8-8.3c-12.4-27.9-14.7-59.6-6.9-88.9h-31.1v81.7c0,7.7-6.3,14-14,14
+			s-14-6.3-14-14v-95.7c0-7.7,6.3-14,14-14H406c4.6,0,9,2.3,11.6,6.1c2.6,3.8,3.2,8.7,1.5,13l-2.1,5.3c-10.2,26-9.5,55.6,1.8,81.1
+			c3.1,7.1,0,15.3-7.1,18.5C409.8,531.9,407.9,532.3,406,532.3z"/>
+	</g>
+	<g>
+		<path class="st0" d="M633.1,407.1c-34.5,0-62.6,28.1-62.6,62.6v97.2c0,7.7,6.3,14,14,14s14-6.3,14-14v-45
+			c9.9,6.6,21.8,10.4,34.6,10.4c34.5,0,62.6-28.1,62.6-62.6C695.7,435.2,667.6,407.1,633.1,407.1z M657.5,494.2
+			c-6.3,6.3-14.9,10.1-24.5,10.1c-19.1,0-34.6-15.5-34.6-34.6c0-19.1,15.5-34.6,34.6-34.6c19.1,0,34.6,15.5,34.6,34.6
+			C667.7,479.3,663.8,487.9,657.5,494.2z"/>
+	</g>
+	<g>
+		<path class="st0" d="M764.8,518.3c0,7.7-6.3,14-14,14h-12.1c-18.9,0-34.3-15.4-34.3-34.2v-87.2h-10.3c-7.7,0-14-6.3-14-14
+			s6.3-14,14-14h10.3v-58.9c0-7.7,6.3-14,14-14c7.7,0,14,6.3,14,14v58.9h10.3c7.7,0,14,6.3,14,14s-6.3,14-14,14h-10.3V498
+			c0,3.4,2.8,6.2,6.3,6.2h12.1C758.6,504.3,764.8,510.5,764.8,518.3z"/>
+	</g>
+	<g>
+		<path class="st0" d="M827.8,631c-34.5,0-62.6-28.1-62.6-62.6c0-7.7,6.3-14,14-14s14,6.3,14,14c0,19.1,15.5,34.6,34.6,34.6
+			s34.6-15.5,34.6-34.6v-45c-9.9,6.6-21.8,10.4-34.6,10.4c-34.5,0-62.6-28.1-62.6-62.6v-48.6c0-7.7,6.3-14,14-14s14,6.3,14,14v48.6
+			c0,19.1,15.5,34.6,34.6,34.6s34.6-15.5,34.6-34.6v-48.6c0-7.7,6.3-14,14-14s14,6.3,14,14v145.8C890.4,602.9,862.3,631,827.8,631z"
+			/>
+	</g>
+	<g>
+		<path class="st0" d="M487.9,859.8h-0.2c-27.8,0-50.4-22.6-50.4-50.4v-11.9c0-7.7,6.3-14,14-14s14,6.3,14,14v11.9
+			c0,12.4,10.1,22.4,22.4,22.4h0.2c12.2,0,22.2-10,22.2-22.2V665.5h-34.6c-7.7,0-14-6.3-14-14s6.3-14,14-14H514
+			c13.3,0,24.1,10.8,24.1,24.1v148C538.1,837.3,515.6,859.8,487.9,859.8z"/>
+	</g>
+	<g>
+		<path class="st0" d="M524.1,631c-7.7,0-14-6.3-14-14v-19.7c0-7.7,6.3-14,14-14s14,6.3,14,14V617C538.1,624.7,531.8,631,524.1,631z
+			"/>
+	</g>
+	<g>
+		<path class="st0" d="M597,765.9c-7.7,0-14-6.3-14-14V651.1c0-7.7,6.3-14,14-14s14,6.3,14,14v100.7
+			C611,759.6,604.7,765.9,597,765.9z"/>
+	</g>
+	<g>
+		<path class="st0" d="M597,630.8c-7.7,0-14-6.3-14-14v-20.3c0-7.7,6.3-14,14-14s14,6.3,14,14v20.3C611,624.5,604.7,630.8,597,630.8
+			z"/>
+	</g>
+	<g>
+		<path class="st0" d="M754.3,578.9c0,7.7-6.3,14-14,14l-34.2,0c-5.7,0-10.3,4.6-10.3,10.3v34.4h10.8c7.7,0,14,6.3,14,14
+			c0,7.7-6.3,14-14,14H696V749c0,7.7-6.3,14-14,14s-14-6.3-14-14v-83.4h-10c-7.7,0-14-6.3-14-14c0-7.7,6.3-14,14-14h9.8v-34.4
+			c0-21.1,17.2-38.3,38.3-38.3l34.2,0c0,0,0,0,0,0C748.1,564.9,754.3,571.2,754.3,578.9z"/>
+	</g>
+</g>
+</svg>
+        
+        
 
         <div class="scroll-indicator" onclick="scrollToWishes()">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -507,11 +587,6 @@
                 <div class="pronunciation">See-koo yah Koo-zah-lee-wah</div>
             </div>
         </div>
-    </div>
-
-    <!-- SVG Section -->
-    <div class="svg-section">
-        <object data="PN stroke.svg" type="image/svg+xml"></object>
     </div>
 
     <script>
@@ -650,44 +725,7 @@
         // Initialize effects
         window.addEventListener('load', () => {
             createFloatingParticles();
-            createConfetti();
         });
-
-        // Confetti effect
-        function createConfetti() {
-            const confettiContainer = document.createElement('div');
-            confettiContainer.className = 'confetti';
-            confettiContainer.style.position = 'fixed';
-            confettiContainer.style.top = '0';
-            confettiContainer.style.left = '0';
-            confettiContainer.style.width = '100%';
-            confettiContainer.style.height = '100%';
-            confettiContainer.style.pointerEvents = 'none';
-            confettiContainer.style.zIndex = '100';
-            document.body.appendChild(confettiContainer);
-
-            for (let i = 0; i < 100; i++) {
-                const confetti = document.createElement('div');
-                confetti.style.position = 'absolute';
-                confetti.style.width = Math.random() * 10 + 5 + 'px';
-                confetti.style.height = Math.random() * 10 + 5 + 'px';
-                confetti.style.background = ['var(--primary)', 'var(--accent)', 'var(--glow-1)', 'var(--glow-3)'][Math.floor(Math.random() * 4)];
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.top = '-10%';
-                confetti.style.animation = `fall ${2 + Math.random() * 3}s linear ${Math.random() * 5}s infinite`;
-                confettiContainer.appendChild(confetti);
-            }
-
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes fall {
-                    to {
-                        transform: translateY(110vh) rotate(360deg);
-                    }
-                }
-            `;
-            document.head.appendChild(style);
-        }
 
         // Intersection Observer for wish cards animation
         const observerOptions = {
