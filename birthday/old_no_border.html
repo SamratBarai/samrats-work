@@ -102,7 +102,7 @@
 
         .letter {
             font-family: "Bebas Neue", sans-serif;
-            font-size: clamp(4rem, 8vw, 6rem);
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: bold;
             color: var(--accent);
             display: inline-block;
@@ -219,11 +219,6 @@
     z-index: 2;
 }
 
-.name, .returns-text {
-    -webkit-text-stroke: 0.5px rgba(255,255,255,0.45);
-    text-stroke: 0.5px rgba(255,255,255,0.45);
-    paint-order: stroke fill;
-}
         .scroll-indicator {
     bottom: 80px;   /* default was 30px — increase to move it higher */
 }
@@ -414,14 +409,6 @@
     font-size: clamp(1.2rem, 3vw, 2rem);
 }
         }
-
-footer {
-    text-align: center;
-    padding: 20px 10px;
-    font-size: 1.0rem;
-    color: rgba(255,255,255,0.65);
-    background: var(--bg-light);
-}
     </style>
 <base target="_blank">
 </head>
@@ -457,7 +444,7 @@ footer {
         </div>
 
         <div class="name-container">
-            <div class="name">PRAPTY<br>BISWAS</div>
+            <div class="name">PRAPTY<br>প্রাপ্তি</div>
         </div>
 
         <div class="returns-text">Many Many Happy Returns of the Day!</div>
@@ -551,8 +538,6 @@ footer {
     <div class="svg-section">
         <object data="PN stroke.svg" type="image/svg+xml"></object>
     </div>
-
-<footer>Created by... Someone 😉</footer>
 
     <script>
         // Scroll to wishes section
@@ -716,8 +701,6 @@ footer {
                 confetti.style.top = '-10%';
                 confetti.style.animation = `fall ${2 + Math.random() * 3}s linear ${Math.random() * 5}s infinite`;
                 confettiContainer.appendChild(confetti);
-
-confetti.addEventListener('animationend', () => confetti.remove());
             }
 
             const style = document.createElement('style');
