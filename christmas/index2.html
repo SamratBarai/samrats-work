@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --primary-red: #ef4444;
+            --primary-green: #10b981;
+            --gold: #fbbf24;
+            --snow-white: #ffffff;
+            --glow-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 30%, #1e293b 0%, #0f172a 100%);
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* --- Snowfall Animation --- */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            cursor: default;
+            pointer-events: none;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh);
+            }
+        }
+
+        /* --- Christmas Lights Header --- */
+        .lights-rope {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), transparent);
+        }
+
+        .wire {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .wire::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #333;
+            z-index: -1;
+            border-radius: 2px;
+        }
+
+        .bulb {
+            width: 20px;
+            height: 30px;
+            background: #555;
+            border-radius: 50%;
+            margin: 0 20px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .bulb::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: #222;
+            border-radius: 2px;
+        }
+
+        .bulb::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background: inherit;
+            opacity: 0.6;
+            filter: blur(5px);
+            z-index: -1;
+            transition: opacity 0.3s;
+        }
+
+        .bulb.red { background: var(--primary-red); }
+        .bulb.green { background: var(--primary-green); }
+        .bulb.gold { background: var(--gold); }
+        .bulb.blue { background: #3b82f6; }
+        
+        .bulb.lit {
+            box-shadow: 0 0 20px currentColor;
+            z-index: 2;
+        }
+        
+        .bulb.lit::after {
+            opacity: 1;
+            filter: blur(8px);
+            transform: translate(-50%, -50%) scale(1.5);
+        }
+
+        /* --- Main Content Layout --- */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 40px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: clamp(4rem, 15vw, 8rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ef4444, #fbbf24, #10b981);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textShimmer 3s infinite linear;
+            text-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+        }
+
+        @keyframes textShimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+        }
+
+        /* --- Interactive Card Section --- */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .card h3 {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+            z-index: 10;
+        }
+
+        /* --- Confetti Canvas --- */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* --- Toast Notification --- */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--primary-green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* --- Button for Surprise --- */
+        .btn-surprise {
+            margin-top: 40px;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--bg-color);
+            background: var(--gold);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-surprise:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.8);
+        }
+
+        .btn-surprise:active {
+            transform: scale(0.95);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .bulb { width: 15px; height: 22px; margin: 0 10px; }
+            h1 { margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Animated Lights -->
+    <header class="lights-rope">
+        <div class="wire" id="lights-wire">
+            <!-- Bulbs injected via JS -->
+        </div>
+    </header>
+
+    <!-- Canvas for confetti -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Main Content -->
+    <main>
+        <h1 id="main-title">Merry Christmas</h1>
+        <p class="subtitle">May your holidays be filled with warmth, joy, and the magic of the season. Click around to spread the cheer!</p>
+
+        <button class="btn-surprise" id="surprise-btn">✨ Click for Magic ✨</button>
+
+        <section class="card-container">
+            <div class="card" onclick="triggerConfetti(event)">
+                <span class="card-icon">🎄</span>
+                <h3>Decorate</h3>
+                <p>Time to trim the tree and hang the stockings with care.</p>
+            </div>
+            <div class="card" onclick="triggerConfetti(event)">
+                <span class="card-icon">🎁</span>
+                <h3>Giving</h3>
+                <p>The best gifts aren't under the tree, but around it.</p>
+            </div>
+            <div class="card" onclick="triggerConfetti(event)">
+                <span class="card-icon">☃️</span>
+                <h3>Frosty Fun</h3>
+                <p>Build a snowman, drink cocoa, and enjoy the winter chill.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 Holiday Wishes | Made with ❤️</p>
+    </footer>
+
+    <!-- Toast Notification Element -->
+    <div class="toast" id="toast">
+        <span>🎄</span> <span id="toast-msg">Ho Ho Ho!</span>
+    </div>
+
+    <script>
+        // --- 1. Snowfall Logic ---
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            
+            // Randomize appearance
+            const startLeft = Math.random() * 100;
+            const duration = Math.random() * 5 + 5; // 5-10s
+            const size = Math.random() * 10 + 10 + 'px';
+            const opacity = Math.random() * 0.7 + 0.3;
+
+            snowflake.style.left = startLeft + 'vw';
+            snowflake.style.fontSize = size;
+            snowflake.style.opacity = opacity;
+            snowflake.style.animationDuration = duration + 's';
+
+            document.body.appendChild(snowflake);
+
+            // Remove snowflake after animation to prevent DOM bloat
+            setTimeout(() => {
+                snowflake.remove();
+            }, duration * 1000);
+        }
+
+        // Create a new snowflake every 300ms
+        setInterval(createSnowflake, 300);
+
+
+        // --- 2. Christmas Lights Animation ---
+        const wire = document.getElementById('lights-wire');
+        const colors = ['red', 'green', 'gold', 'blue'];
+        const bulbCount = 15; // Number of bulbs
+
+        // Generate bulbs
+        for (let i = 0; i < bulbCount; i++) {
+            const bulb = document.createElement('div');
+            bulb.classList.add('bulb');
+            bulb.classList.add(colors[i % colors.length]);
+            wire.appendChild(bulb);
+        }
+
+        const bulbs = document.querySelectorAll('.bulb');
+
+        function animateLights() {
+            bulbs.forEach((bulb, index) => {
+                // Random delay for twinkling effect
+                setTimeout(() => {
+                    bulb.classList.add('lit');
+                    
+                    // Turn off after random duration
+                    setTimeout(() => {
+                        bulb.classList.remove('lit');
+                    }, Math.random() * 1000 + 500);
+                }, Math.random() * 2000);
+            });
+        }
+
+        // Run lights loop continuously
+        setInterval(animateLights, 2000);
+
+
+        // --- 3. Confetti Logic (Canvas) ---
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let confettiParticles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 10 + 5;
+                this.speedX = Math.random() * 6 - 3;
+                this.speedY = Math.random() * -5 - 5; // Upward burst initially
+                this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                this.gravity = 0.2;
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 10 - 5;
+            }
+
+            update() {
+                this.speedY += this.gravity;
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.rotation += this.rotationSpeed;
+                
+                if (this.size > 0.2) this.size -= 0.1; // Shrink slightly
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation * Math.PI / 180);
+                ctx.fillStyle = this.color;
+                ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                ctx.restore();
+            }
+        }
+
+        function handleConfetti() {
+            for (let i = 0; i < confettiParticles.length; i++) {
+                confettiParticles[i].update();
+                confettiParticles[i].draw();
+
+                // Remove particles that fall off screen or are too small
+                if (confettiParticles[i].size <= 0.3 || confettiParticles[i].y > canvas.height) {
+                    confettiParticles.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            handleConfetti();
+            requestAnimationFrame(animateConfetti);
+        }
+        animateConfetti();
+
+        // Trigger function called by click events
+        window.triggerConfetti = function(e) {
+            // Determine center of screen or click position
+            // If triggered by button event (might be null), fallback to center
+            const x = e ? e.clientX : window.innerWidth / 2;
+            const y = e ? e.clientY : window.innerHeight / 2;
+
+            for (let i = 0; i < 60; i++) {
+                confettiParticles.push(new Particle(x, y));
+            }
+        };
+
+
+        // --- 4. Interactions & Toast Logic ---
+        const surpriseBtn = document.getElementById('surprise-btn');
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-msg');
+
+        function showToast(message) {
+            toastMsg.innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        const messages = [
+            "Merry Christmas to you!",
+            "Stay warm and cozy!",
+            "Believe in the magic!",
+            "Joy to the World!",
+            "Santa is watching!"
+        ];
+
+        surpriseBtn.addEventListener('click', (e) => {
+            triggerConfetti(e);
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            showToast(randomMsg);
+            
+            // Simple title animation toggle
+            const title = document.getElementById('main-title');
+            title.style.transform = "scale(1.2)";
+            setTimeout(() => title.style.transform = "scale(1)", 200);
+        });
+
+        // Initial Confetti Burst on Load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                triggerConfetti(); // Center burst
+                showToast("Welcome! Happy Holidays!");
+            }, 1000);
+        });
+
+    </script>
+</body>
+</html>
