@@ -15,7 +15,36 @@ function createConfetti() {
   }
 
   const confettiScale = getConfettiScale();
-  const confettiCount = Math.max(40, Math.round(1200 * confettiScale));
+  // Run a short synchronous probe to detect weak desktops and cache result
+  function runPerformanceProbeSync(maxMs = 30) {
+    try {
+      const key = 'confettiPerfProbe_v1';
+      const cached = localStorage.getItem(key);
+      if (cached) {
+        const data = JSON.parse(cached);
+        if (Date.now() - data.ts < 24 * 60 * 60 * 1000) return data.factor;
+      }
+      const start = performance.now();
+      let iters = 0;
+      while (performance.now() - start < maxMs) {
+        Math.sqrt(iters * 12345.6789 + 1);
+        iters++;
+      }
+      const elapsed = performance.now() - start;
+      const rate = iters / Math.max(1, elapsed);
+      let factor = 1;
+      if (rate < 1000) factor = 0.3;
+      else if (rate < 2000) factor = 0.5;
+      else if (rate < 4000) factor = 0.75;
+      else factor = 1;
+      try { localStorage.setItem(key, JSON.stringify({ ts: Date.now(), factor })); } catch (e) {}
+      return factor;
+    } catch (e) { return 1; }
+  }
+
+  const perfFactor = runPerformanceProbeSync();
+  const finalScale = Math.max(0.25, Math.min(1, confettiScale * perfFactor));
+  const confettiCount = Math.max(20, Math.round(1200 * finalScale));
 
     for (let i = 0; i < confettiCount; i++) {
       const confetti = document.createElement("div");

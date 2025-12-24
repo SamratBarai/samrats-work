@@ -701,9 +701,68 @@
             return Math.max(0.25, Math.min(1, scale));
         }
 
-        const confettiScale = getConfettiScale();
-        const CONFETTI_MAX_PARTICLES = Math.max(150, Math.round(600 * confettiScale));
-        const fireworksEnabled = confettiScale > 0.3;
+        // initialize scale, allow updates after a runtime probe
+        let confettiScale = getConfettiScale();
+        let CONFETTI_MAX_PARTICLES = Math.max(150, Math.round(600 * confettiScale));
+        let fireworksEnabled = confettiScale > 0.3;
+
+        // Run a short, cached runtime performance probe to detect weak desktops
+        // Keeps blocking time very small (~30-40ms) and caches result for 24h
+        function applyProbedScale(probedFactor) {
+            // Combine base heuristic (mem/cpu/mobile) with runtime probe factor
+            const newScale = Math.max(0.25, Math.min(1, confettiScale * probedFactor));
+            confettiScale = newScale;
+            CONFETTI_MAX_PARTICLES = Math.max(100, Math.round(600 * confettiScale));
+            fireworksEnabled = confettiScale > 0.3;
+
+            // If we've reduced the max, trim active particles immediately to free CPU
+            if (confettiParticles.length > CONFETTI_MAX_PARTICLES) {
+                confettiParticles.length = CONFETTI_MAX_PARTICLES;
+            }
+        }
+
+        function runPerformanceProbe() {
+            try {
+                const key = 'confettiPerfProbe_v1';
+                const cached = localStorage.getItem(key);
+                if (cached) {
+                    const data = JSON.parse(cached);
+                    // cache valid for 24 hours
+                    if (Date.now() - data.ts < 24 * 60 * 60 * 1000) {
+                        applyProbedScale(data.factor);
+                        return;
+                    }
+                }
+
+                // Short CPU probe: run small amount of work for max ~35ms
+                const maxMs = 35;
+                const start = performance.now();
+                let iters = 0;
+                while (performance.now() - start < maxMs) {
+                    // inexpensive math to keep the CPU busy
+                    Math.sqrt(iters * 12345.6789 + 1);
+                    iters++;
+                }
+                const elapsed = performance.now() - start;
+                const rate = iters / Math.max(1, elapsed); // iterations per ms
+
+                // Map measured rate to a factor (conservative mapping)
+                let factor = 1;
+                if (rate < 1000) factor = 0.3;
+                else if (rate < 2000) factor = 0.5;
+                else if (rate < 4000) factor = 0.75;
+                else factor = 1;
+
+                applyProbedScale(factor);
+                try { localStorage.setItem(key, JSON.stringify({ ts: Date.now(), factor })); } catch (e) { /* ignore */ }
+            } catch (e) {
+                // don't break page if probe fails
+                return;
+            }
+        }
+
+        // Run probe async after initial paint to avoid delaying load
+        setTimeout(runPerformanceProbe, 500);
 
         let confettiParticles = [];
 
