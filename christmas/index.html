@@ -686,6 +686,25 @@
         }
         setCanvasSize();
 
+        // --- Performance-based confetti scaling ---
+        // Reduces particle counts on low-end devices (low RAM / few CPU cores / mobile)
+        function getConfettiScale() {
+            const mem = navigator.deviceMemory || 4;
+            const cpus = navigator.hardwareConcurrency || 4;
+            const ua = navigator.userAgent || '';
+            const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(ua) || (navigator.userAgentData && navigator.userAgentData.mobile);
+            let scale = 1;
+            if (isMobile) scale = 0.4;
+            if (mem <= 1.5 || cpus <= 1) scale = Math.min(scale, 0.25);
+            else if (mem <= 2.5 || cpus <= 2) scale = Math.min(scale, 0.35);
+            else if (mem <= 3.5 || cpus <= 3) scale = Math.min(scale, 0.6);
+            return Math.max(0.25, Math.min(1, scale));
+        }
+
+        const confettiScale = getConfettiScale();
+        const CONFETTI_MAX_PARTICLES = Math.max(150, Math.round(600 * confettiScale));
+        const fireworksEnabled = confettiScale > 0.3;
+
         let confettiParticles = [];
 
         window.addEventListener('resize', setCanvasSize);
@@ -762,7 +781,9 @@
 
             explode() {
                 this.exploded = true;
-                const count = 40 + Math.floor(Math.random() * 40);
+                // scale firework particle count based on device performance
+                const base = 40 + Math.floor(Math.random() * 40);
+                const count = fireworksEnabled ? Math.max(8, Math.round(base * confettiScale)) : 0;
                 for (let i = 0; i < count; i++) {
                     fwParticles.push(new FireworkParticle(this.x, this.y, this.color));
                 }
@@ -834,7 +855,7 @@
 
             // fireworks canvas
             fwCtx.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
-            handleFireworks();
+            if (fireworksEnabled) handleFireworks();
 
             requestAnimationFrame(animateConfetti);
         }
@@ -842,11 +863,12 @@
 
         // Trigger function called by click events (small sparkle) or programmatic calls
         window.triggerConfetti = function(e, opts = {}) {
-            const count = opts.count || 60;
+            const count = opts.count || Math.max(4, Math.round(60 * confettiScale));
             const x = e && e.clientX ? e.clientX : (opts.x || window.innerWidth / 2);
             const y = e && e.clientY ? e.clientY : (opts.y || window.innerHeight / 2);
 
             for (let i = 0; i < count; i++) {
+                if (confettiParticles.length >= CONFETTI_MAX_PARTICLES) break;
                 confettiParticles.push(new Particle(x + (Math.random() - 0.5) * 80, y + (Math.random() - 0.5) * 80));
             }
         };
@@ -859,6 +881,8 @@
         // fire multiple rockets over a period
         function startFireworksSequence(duration = 5000) {
             const start = Date.now();
+            if (!fireworksEnabled) return; // skip on low-end devices
+            const intervalDelay = Math.round(350 / confettiScale);
             const interval = setInterval(() => {
                 const now = Date.now();
                 if (!effectsOn || now - start > duration) {
@@ -866,7 +890,7 @@
                     return;
                 }
                 launchRocket(Math.random() * window.innerWidth * 0.9 + window.innerWidth * 0.05);
-            }, 350);
+            }, intervalDelay);
         }
 
         // --- Side-launched confetti for grand celebration ---
@@ -876,6 +900,7 @@
                 const y = Math.random() * window.innerHeight * 0.6 + window.innerHeight * 0.1;
                 const vx = side === 'left' ? (Math.random() * 6 + 4) : -(Math.random() * 6 + 4);
                 const vy = -(Math.random() * 6 + 6);
+                if (confettiParticles.length >= CONFETTI_MAX_PARTICLES) break;
                 confettiParticles.push(new Particle(startX, y, vx, vy));
             }
         }
@@ -888,8 +913,9 @@
                     return;
                 }
                 // alternate sides
-                sideConfettiBurst('left', 40);
-                setTimeout(() => sideConfettiBurst('right', 40), 200);
+                const burstCount = Math.max(4, Math.round(40 * confettiScale));
+                sideConfettiBurst('left', burstCount);
+                setTimeout(() => sideConfettiBurst('right', burstCount), 200);
             }, 700);
         }
 
