@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas! — Cozy Wishes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --primary-red: #ef4444;
+            --primary-green: #10b981;
+            --gold: #fbbf24;
+            --snow-white: #ffffff;
+            --glow-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 30%, #1e293b 0%, #0f172a 100%);
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* --- Snowfall Animation --- */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            cursor: default;
+            pointer-events: none;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh);
+            }
+        }
+
+        /* --- Christmas Lights Header --- */
+        .lights-rope {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), transparent);
+        }
+
+        .wire {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .wire::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #333;
+            z-index: -1;
+            border-radius: 2px;
+        }
+
+        .bulb {
+            width: 20px;
+            height: 30px;
+            background: #555;
+            border-radius: 50%;
+            margin: 0 20px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .bulb::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: #222;
+            border-radius: 2px;
+        }
+
+        .bulb::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background: inherit;
+            opacity: 0.6;
+            filter: blur(5px);
+            z-index: -1;
+            transition: opacity 0.3s;
+        }
+
+        .bulb.red { background: var(--primary-red); }
+        .bulb.green { background: var(--primary-green); }
+        .bulb.gold { background: var(--gold); }
+        .bulb.blue { background: #3b82f6; }
+        
+        .bulb.lit {
+            box-shadow: 0 0 20px currentColor;
+            z-index: 2;
+        }
+        
+        .bulb.lit::after {
+            opacity: 1;
+            filter: blur(8px);
+            transform: translate(-50%, -50%) scale(1.5);
+        }
+
+        /* --- Main Content Layout --- */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 40px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: clamp(4rem, 15vw, 8rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ef4444, #fbbf24, #10b981);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textShimmer 3s infinite linear;
+            text-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+        }
+
+        @keyframes textShimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        p.subtitle {
+            font-size: 1.15rem;
+            max-width: 700px;
+            line-height: 1.7;
+            color: #d1d9e6;
+            margin-bottom: 24px;
+        }
+
+        /* --- Ambient overlay & twinkle stars --- */
+        .ambient-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5;
+            mix-blend-mode: overlay;
+            background: radial-gradient(600px 400px at 20% 20%, rgba(255,220,160,0.05), transparent 10%), radial-gradient(400px 300px at 80% 70%, rgba(200,240,255,0.03), transparent 10%);
+            animation: ambientPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes ambientPulse {
+            0% { opacity: 0.9; filter: hue-rotate(0deg) brightness(1); }
+            50% { opacity: 1; filter: hue-rotate(6deg) brightness(1.03); }
+            100% { opacity: 0.9; filter: hue-rotate(0deg) brightness(1); }
+        }
+
+        .stars {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(#fff 1px, transparent 1px), radial-gradient(#fff 1px, transparent 1px);
+            background-size: 2px 2px, 3px 3px;
+            background-position: 10px 20px, 100px 200px;
+            opacity: 0.06;
+            animation: twinkle 6s linear infinite;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.05; }
+            50% { opacity: 0.12; }
+            100% { opacity: 0.05; }
+        }
+
+        /* --- Letter-by-letter reveal (copied from birthday.html) --- */
+        .word { display: inline-flex; gap: 8px; justify-content: center; }
+
+        .letter {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: clamp(4rem, 15vw, 8rem);
+            font-weight: 700;
+            display: inline-block;
+            color: transparent;
+            /* main gradient + subtle inner sheen texture */
+            background-image: linear-gradient(to right, #ef4444, #fbbf24, #10b981), linear-gradient(45deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.015) 100%);
+            background-size: 200% 100%, 100% 100%;
+            background-position: 0% 50%, 0 0;
+            -webkit-background-clip: text;
+            background-clip: text;
+            opacity: 0;
+            transform-origin: center;
+            /* animate letter drop + shimmer sweep */
+            animation: letterFall 1.8s ease-out forwards, textShimmer 3s infinite linear;
+            animation-delay: calc(var(--i) * 0.12s), 0s;
+            text-shadow: 0 6px 18px rgba(0,0,0,0.35);
+        }
+
+        @keyframes letterFall {
+            0% { transform: translateY(-200vh) rotate(-360deg) scale(2); opacity: 0; }
+            60% { transform: translateY(0) rotate(15deg) scale(1.1); opacity: 1; }
+            70% { transform: rotate(-10deg); }
+            80% { transform: rotate(5deg); }
+            90% { transform: rotate(-2deg); }
+            100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+        }
+
+        /* Stronger glow aura for main title (layered for a magical look) */
+        #main-title { position: relative; display: inline-block; }
+        #main-title::before,
+        #main-title::after {
+            content: '';
+            position: absolute;
+            left: -12%; right: -12%; top: -28%; bottom: -28%;
+            border-radius: 16px;
+            z-index: -1;
+            pointer-events: none;
+            will-change: transform, opacity, filter;
+        }
+
+        /* soft warm halo */
+        #main-title::before {
+            background: radial-gradient(circle at 30% 30%, rgba(251,191,36,0.22), rgba(255,200,150,0.06) 30%, transparent 55%);
+            filter: blur(34px) saturate(1.1);
+            opacity: 0.95;
+            animation: auraPulseLarge 5.5s ease-in-out infinite;
+        }
+
+        /* subtle colored rim */
+        #main-title::after {
+            background: radial-gradient(circle at 70% 70%, rgba(16,185,129,0.12), rgba(239,68,68,0.08) 30%, transparent 55%);
+            filter: blur(18px) brightness(1.02);
+            opacity: 0.9;
+            animation: auraPulseSmall 4.2s ease-in-out infinite;
+        }
+
+        @keyframes auraPulseLarge {
+            0% { transform: scale(1); opacity: 0.85; }
+            50% { transform: scale(1.06); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.85; }
+        }
+
+        @keyframes auraPulseSmall {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.03); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        /* stronger glowing text-shadow on each letter */
+        .letter {
+            text-shadow:
+                0 6px 18px rgba(0,0,0,0.35),
+                0 0 8px rgba(251,191,36,0.9),
+                0 0 22px rgba(239,68,68,0.25),
+                0 0 32px rgba(16,185,129,0.18);
+        }
+
+        /* --- Ambient glowing lights (from birthday.html, adapted) --- */
+        .ambient-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .light-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.36;
+            animation: floatLight 20s infinite ease-in-out;
+        }
+
+        @keyframes floatLight {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(100px, -150px) scale(1.2); }
+            50% { transform: translate(-150px, 100px) scale(0.8); }
+            75% { transform: translate(200px, 150px) scale(1.1); }
+        }
+
+        /* --- Sparkle on mousemove --- */
+        .sparkle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 3000;
+            opacity: 0.95;
+            transform: translate(-50%, -50%);
+            animation: sparkleAnim 900ms ease-out forwards;
+        }
+
+        @keyframes sparkleAnim {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+            50% { transform: translate(-50%, -100%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -200%) scale(0); opacity: 0; }
+        }
+
+        /* --- Snow caps for headings and card titles --- */
+        h1, .card h3 {
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after, .card h3::after {
+            content: '';
+            position: absolute;
+            left: -6%;
+            right: -6%;
+            top: -10px;
+            height: 14px;
+            background: linear-gradient(#fff 20%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.6) 80%, transparent 100%);
+            border-radius: 8px;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
+            transform: rotate(-1deg);
+            pointer-events: none;
+        }
+
+        .effects-toggle {
+            position: fixed;
+            top: 14px;
+            right: 14px;
+            z-index: 2000;
+            background: rgba(255,255,255,0.06);
+            color: var(--text-color);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+        }
+
+        /* --- Interactive Card Section --- */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .card h3 {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+            text-shadow: 0 8px 24px rgba(251,191,36,0.08);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+        }
+
+        .card .subtle { color: #cbd5e1; font-size: 0.9rem; margin-top: 8px; }
+
+        /* --- Footer --- */
+        footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+            z-index: 10;
+        }
+
+        /* --- Confetti + Fireworks Canvas --- */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        #fireworks-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1002;
+        }
+
+        /* --- Toast Notification --- */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--primary-green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* --- Button for Surprise --- */
+        .btn-surprise {
+            margin-top: 40px;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--bg-color);
+            background: var(--gold);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-surprise:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.8);
+        }
+
+        .btn-surprise:active {
+            transform: scale(0.95);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .bulb { width: 15px; height: 22px; margin: 0 10px; }
+            h1 { margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Animated Lights -->
+    <header class="lights-rope">
+        <div class="wire" id="lights-wire">
+            <!-- Bulbs injected via JS -->
+        </div>
+    </header>
+
+    <!-- Canvas for confetti -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Main Content -->
+    <main>
+        <h1 id="main-title">Merry Christmas!</h1>
+        <p class="subtitle">May your holidays be filled with warmth, cozy fires, and little moments that sparkle. Explore the cards below — they're full of tiny holiday ideas and sweetness.</p>
+
+        <!-- Effects Toggle (accessibility) -->
+        <button class="effects-toggle" id="effects-toggle">✨ Effects: On</button>
+
+        <!-- Ambient overlay + stars -->
+        <div class="ambient-overlay"><div class="stars" aria-hidden="true"></div></div>
+
+        <!-- Ambient glowing orbs (inspired by birthday.html) -->
+        <div class="ambient-lights" aria-hidden="true">
+            <div class="light-orb" style="width:320px; height:320px; background: var(--gold); top: 8%; left: 6%;"></div>
+            <div class="light-orb" style="width:420px; height:420px; background: var(--primary-red); bottom: 12%; right: 8%; animation-delay: -6s;"></div>
+            <div class="light-orb" style="width:360px; height:360px; background: var(--primary-green); top: 54%; left: 28%; animation-delay: -10s;"></div>
+        </div>
+
+        <!-- Fireworks canvas (separate to layer over confetti) -->
+        <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+
+        <section class="card-container" aria-label="Holiday ideas">
+            <div class="card" data-action="sparkle">
+                <span class="card-icon">🕯️</span>
+                <h3>Warm & Cozy</h3>
+                <p>Light a candle, brew cocoa, and curl up with a good blanket — tiny comforts make the season gentle.</p>
+                <div class="subtle">Tip: Try orange & cinnamon for a homely scent.</div>
+            </div>
+            <div class="card" data-action="sparkle">
+                <span class="card-icon">🎁</span>
+                <h3>Share the Love</h3>
+                <p>Leave a sweet note, share a treat, or give a handmade surprise — the smallest gestures glow the brightest.</p>
+                <div class="subtle">Handwritten notes = instant smiles.</div>
+            </div>
+            <div class="card" data-action="sparkle">
+                <span class="card-icon">❄️</span>
+                <h3>Snowy Joy</h3>
+                <p>Watch the flakes fall, make snow angels, or go for a peaceful winter walk — simple magic is everywhere.</p>
+                <div class="subtle">Cocoa break recommended.</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Holiday Wishes — made with ❤️ and a cup of cocoa</p>
+    </footer>
+
+    <!-- Toast Notification Element -->
+    <div class="toast" id="toast">
+        <span>🎄</span> <span id="toast-msg">Ho Ho Ho!</span>
+    </div>
+
+    <script>
+        // --- 1. Snowfall Logic ---
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            
+            // Randomize appearance
+            const startLeft = Math.random() * 100;
+            const duration = Math.random() * 5 + 5; // 5-10s
+            const size = Math.random() * 10 + 10 + 'px';
+            const opacity = Math.random() * 0.7 + 0.3;
+
+            snowflake.style.left = startLeft + 'vw';
+            snowflake.style.fontSize = size;
+            snowflake.style.opacity = opacity;
+            snowflake.style.animationDuration = duration + 's';
+
+            document.body.appendChild(snowflake);
+
+            // Remove snowflake after animation to prevent DOM bloat
+            setTimeout(() => {
+                snowflake.remove();
+            }, duration * 1000);
+        }
+
+        // Create a new snowflake every 300ms (store id for toggling)
+        let snowInterval = setInterval(createSnowflake, 300);
+
+
+        // --- 2. Christmas Lights Animation ---
+        const wire = document.getElementById('lights-wire');
+        const colors = ['red', 'green', 'gold', 'blue'];
+        const bulbCount = 15; // Number of bulbs
+
+        // Generate bulbs
+        for (let i = 0; i < bulbCount; i++) {
+            const bulb = document.createElement('div');
+            bulb.classList.add('bulb');
+            bulb.classList.add(colors[i % colors.length]);
+            wire.appendChild(bulb);
+        }
+
+        const bulbs = document.querySelectorAll('.bulb');
+
+        function animateLights() {
+            bulbs.forEach((bulb, index) => {
+                // Random delay for twinkling effect
+                setTimeout(() => {
+                    bulb.classList.add('lit');
+                    
+                    // Turn off after random duration
+                    setTimeout(() => {
+                        bulb.classList.remove('lit');
+                    }, Math.random() * 1000 + 500);
+                }, Math.random() * 2000);
+            });
+        }
+
+        // Run lights loop continuously
+        setInterval(animateLights, 2000);
+
+
+        // --- 3. Confetti Logic (Canvas) ---
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        const fireworksCanvas = document.getElementById('fireworks-canvas');
+        const fwCtx = fireworksCanvas.getContext('2d');
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            fireworksCanvas.width = window.innerWidth;
+            fireworksCanvas.height = window.innerHeight;
+        }
+        setCanvasSize();
+
+        let confettiParticles = [];
+
+        window.addEventListener('resize', setCanvasSize);
+
+        class Particle {
+            constructor(x, y, vx, vy) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 10 + 5;
+                // allow explicit initial velocities for side launches
+                this.speedX = typeof vx === 'number' ? vx : (Math.random() * 6 - 3);
+                this.speedY = typeof vy === 'number' ? vy : (Math.random() * -5 - 5); // Upward burst initially
+                this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                this.gravity = 0.2;
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 10 - 5;
+            }
+
+            update() {
+                this.speedY += this.gravity;
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.rotation += this.rotationSpeed;
+                
+                if (this.size > 0.2) this.size -= 0.1; // Shrink slightly
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation * Math.PI / 180);
+                ctx.fillStyle = this.color;
+                ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                ctx.restore();
+            }
+        }
+
+        function handleConfetti() {
+            for (let i = 0; i < confettiParticles.length; i++) {
+                confettiParticles[i].update();
+                confettiParticles[i].draw();
+
+                // Remove particles that fall off screen or are too small
+                if (confettiParticles[i].size <= 0.3 || confettiParticles[i].y > canvas.height) {
+                    confettiParticles.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        // --- Fireworks implementation (simple two-phase rockets -> particles) ---
+        let rockets = [];
+        let fwParticles = [];
+
+        class Rocket {
+            constructor(x) {
+                this.x = x;
+                this.y = canvas.height + 10;
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = -(Math.random() * 8 + 8);
+                this.exploded = false;
+                this.color = `hsl(${Math.random() * 360}, 90%, 60%)`;
+            }
+
+            update() {
+                this.vy += 0.12; // gravity
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.vy >= -1 && !this.exploded) {
+                    this.explode();
+                }
+            }
+
+            explode() {
+                this.exploded = true;
+                const count = 40 + Math.floor(Math.random() * 40);
+                for (let i = 0; i < count; i++) {
+                    fwParticles.push(new FireworkParticle(this.x, this.y, this.color));
+                }
+            }
+
+            draw() {
+                fwCtx.beginPath();
+                fwCtx.fillStyle = '#fff';
+                fwCtx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
+                fwCtx.fill();
+            }
+        }
+
+        class FireworkParticle {
+            constructor(x, y, color) {
+                this.x = x; this.y = y;
+                const ang = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 4 + 2;
+                this.vx = Math.cos(ang) * speed;
+                this.vy = Math.sin(ang) * speed;
+                this.gravity = 0.06;
+                this.alpha = 1;
+                this.color = color;
+            }
+
+            update() {
+                this.vy += this.gravity;
+                this.x += this.vx;
+                this.y += this.vy;
+                this.alpha -= 0.01;
+            }
+
+            draw() {
+                fwCtx.globalAlpha = Math.max(0, this.alpha);
+                fwCtx.fillStyle = this.color;
+                fwCtx.beginPath();
+                fwCtx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
+                fwCtx.fill();
+                fwCtx.globalAlpha = 1;
+            }
+        }
+
+        function handleFireworks() {
+            // update rockets
+            for (let i = 0; i < rockets.length; i++) {
+                rockets[i].update();
+                rockets[i].draw();
+                if (rockets[i].exploded) {
+                    rockets.splice(i, 1);
+                    i--;
+                }
+            }
+
+            // update particles
+            for (let i = 0; i < fwParticles.length; i++) {
+                fwParticles[i].update();
+                fwParticles[i].draw();
+                if (fwParticles[i].alpha <= 0) {
+                    fwParticles.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        function animateConfetti() {
+            // confetti canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            handleConfetti();
+
+            // fireworks canvas
+            fwCtx.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+            handleFireworks();
+
+            requestAnimationFrame(animateConfetti);
+        }
+        animateConfetti();
+
+        // Trigger function called by click events (small sparkle) or programmatic calls
+        window.triggerConfetti = function(e, opts = {}) {
+            const count = opts.count || 60;
+            const x = e && e.clientX ? e.clientX : (opts.x || window.innerWidth / 2);
+            const y = e && e.clientY ? e.clientY : (opts.y || window.innerHeight / 2);
+
+            for (let i = 0; i < count; i++) {
+                confettiParticles.push(new Particle(x + (Math.random() - 0.5) * 80, y + (Math.random() - 0.5) * 80));
+            }
+        };
+
+        // Fireworks launcher (single rocket)
+        function launchRocket(x) {
+            rockets.push(new Rocket(x));
+        }
+
+        // fire multiple rockets over a period
+        function startFireworksSequence(duration = 5000) {
+            const start = Date.now();
+            const interval = setInterval(() => {
+                const now = Date.now();
+                if (!effectsOn || now - start > duration) {
+                    clearInterval(interval);
+                    return;
+                }
+                launchRocket(Math.random() * window.innerWidth * 0.9 + window.innerWidth * 0.05);
+            }, 350);
+        }
+
+        // --- Side-launched confetti for grand celebration ---
+        function sideConfettiBurst(side = 'left', count = 60) {
+            const startX = side === 'left' ? -20 : window.innerWidth + 20;
+            for (let i = 0; i < count; i++) {
+                const y = Math.random() * window.innerHeight * 0.6 + window.innerHeight * 0.1;
+                const vx = side === 'left' ? (Math.random() * 6 + 4) : -(Math.random() * 6 + 4);
+                const vy = -(Math.random() * 6 + 6);
+                confettiParticles.push(new Particle(startX, y, vx, vy));
+            }
+        }
+
+        function sideCelebration(duration = 6000) {
+            const start = Date.now();
+            const interval = setInterval(() => {
+                if (!effectsOn || Date.now() - start > duration) {
+                    clearInterval(interval);
+                    return;
+                }
+                // alternate sides
+                sideConfettiBurst('left', 40);
+                setTimeout(() => sideConfettiBurst('right', 40), 200);
+            }, 700);
+        }
+
+
+        // --- 4. Interactions & Toast Logic ---
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-msg');
+        const effectsToggle = document.getElementById('effects-toggle');
+        let effectsOn = true;
+
+        function showToast(message) {
+            toastMsg.innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        const messages = [
+            "Merry Christmas — enjoy the glow!",
+            "Stay warm and cozy!",
+            "Little moments make the season bright.",
+            "Joy to the world!",
+            "Sending you a warm hug."
+        ];
+
+        // Cards: gentle interaction (sparkle + toast)
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (!effectsOn) {
+                    showToast('Effects are turned off — enjoy the calm ✨');
+                    return;
+                }
+                // small, pleasant burst
+                triggerConfetti(e, { count: 18 });
+                const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+                showToast(randomMsg);
+            });
+        });
+
+        // Toggle effects (stop/start snow + fireworks + confetti)
+        effectsToggle.addEventListener('click', () => {
+            effectsOn = !effectsOn;
+            effectsToggle.innerText = `✨ Effects: ${effectsOn ? 'On' : 'Off'}`;
+            if (!effectsOn) {
+                // stop snow
+                clearInterval(snowInterval);
+                document.querySelectorAll('.snowflake').forEach(n => n.remove());
+                // clear particles and rockets
+                confettiParticles = [];
+                rockets = [];
+                fwParticles = [];
+                // remove floating particles and sparkles
+                const pc = document.querySelector('.particles'); if (pc) pc.remove();
+                document.querySelectorAll('.sparkle').forEach(n => n.remove());
+            } else {
+                snowInterval = setInterval(createSnowflake, 300);
+            }
+            // toggle ambient lights visibility
+            const ambient = document.querySelector('.ambient-lights');
+            if (ambient) ambient.style.display = effectsOn ? 'block' : 'none';
+        });
+
+        // Respect user motion preferences
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            effectsOn = false;
+            effectsToggle.innerText = `✨ Effects: Off`;
+            clearInterval(snowInterval);
+            confettiParticles = [];
+            rockets = [];
+            fwParticles = [];
+            const ambient = document.querySelector('.ambient-lights');
+            if (ambient) ambient.style.display = 'none';
+        }
+
+        // Pause creating new snow/confetti while tab is hidden
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                // pause snow
+                clearInterval(snowInterval);
+            } else {
+                if (effectsOn && !snowInterval) snowInterval = setInterval(createSnowflake, 300);
+            }
+        });
+
+        // Subtle floating particles (adapted from birthday.html)
+        function createFloatingParticles() {
+            const particlesContainer = document.createElement('div');
+            particlesContainer.className = 'particles';
+            particlesContainer.style.position = 'fixed';
+            particlesContainer.style.top = '0';
+            particlesContainer.style.left = '0';
+            particlesContainer.style.width = '100%';
+            particlesContainer.style.height = '100%';
+            particlesContainer.style.pointerEvents = 'none';
+            particlesContainer.style.zIndex = '3';
+            document.body.appendChild(particlesContainer);
+
+            const colors = ['var(--gold)', 'var(--primary-red)', 'var(--primary-green)', 'rgba(255,255,255,0.9)'];
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 8 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animation = `floatParticle ${15 + Math.random() * 10}s infinite ease-in-out`;
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.opacity = '0.5';
+                particlesContainer.appendChild(particle);
+            }
+
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes floatParticle {
+                    0%, 100% { transform: translate(0, 0) scale(1); }
+                    25% { transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 80 - 40}px) scale(1.2); }
+                    50% { transform: translate(${Math.random() * 120 - 60}px, ${Math.random() * 120 - 60}px) scale(0.8); }
+                    75% { transform: translate(${Math.random() * 80 - 40}px, ${Math.random() * 140 - 70}px) scale(1.1); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Create title letters (letter-by-letter reveal)
+        function createTitleLetters() {
+            const title = document.getElementById('main-title');
+            if (!title) return;
+            const text = title.textContent.trim();
+            let idx = 0;
+            const wordDiv = document.createElement('div');
+            wordDiv.className = 'word';
+
+            const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            for (const ch of text) {
+                const sp = document.createElement('span');
+                sp.className = 'letter';
+                sp.style.setProperty('--i', idx);
+                sp.textContent = ch === ' ' ? '\u00A0' : ch;
+                if (reduce) {
+                    sp.style.opacity = '1';
+                    sp.style.animation = 'none';
+                }
+                wordDiv.appendChild(sp);
+                idx++;
+            }
+
+            title.innerHTML = '';
+            title.appendChild(wordDiv);
+        }
+
+        // Run immediately so letters animate as the page loads
+        createTitleLetters();
+
+        // Sparkle on mouse move (subtle)
+        document.addEventListener('mousemove', (e) => {
+            if (!effectsOn) return;
+            if (Math.random() > 0.97) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                const colors = ['#fff9e6', '#ffefc9', '#fff', '#ffdca8'];
+                sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 900);
+            }
+        });
+
+        // Initial Grand Celebration on Load (confetti + fireworks)
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                if (!effectsOn) return;
+
+                // subtle ambient particles
+                createFloatingParticles();
+
+                // side-launched confetti for a grand vibe (no center bursts)
+                sideCelebration(7000);
+
+                // start fireworks for a few seconds
+                startFireworksSequence(7000);
+
+                showToast("Welcome! Happy Holidays — let the magic begin!");
+            }, 900);
+        });
+
+    </script>
+</body>
+</html>
